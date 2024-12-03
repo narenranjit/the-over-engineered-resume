@@ -2,7 +2,8 @@
 
 I thrive at the intersection of product and engineering, leading teams in crafting products so seamless they feel invisible. I’ve helped launch multiple 0-1 products, bridging vision and execution by shipping fast and iterating often. I’ve scaled organizations through explosive growth and guided them during downturns, with a constant focus on resilience and adaptability. I foster engineering cultures that thrive on curiosity, speed, and purpose, where teams take initiative, act with clarity, and embrace risks, knowing that learning fuels growth.
 
-## Experience {#references-2 }
+## Experience 
+<div class="experience">
 
 ### Course Hero
 #### Senior Director of Engineering - 2022 - current
@@ -34,7 +35,7 @@ Frontpage.to was a customizable content aggregation tool for creating personaliz
 * Engaged directly with users to gather feedback, iterating on features to achieve a 50% Day-30 retention rate.
 * Owned every aspect of the product - from customer research to design and development — ensuring a cohesive vision that led to sustained engagement and growth.
 
-### Forio 
+### Forio {.break-after-page}
 #### Director of Engineering 2014 - 2017
 #### Senior Engineering Manager 2011 - 2014
 Led Forio's consulting division, collaborating with Harvard, Wharton, IBM, and Fortune 500 companies, to build data-rich web simulations. Also owned all user-facing elements of the platform.
@@ -54,6 +55,7 @@ Started as employee #3, driven by desire to have direct impact in a growing comp
 Originally joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expertise, and leveraged background in design to become front-end lead, spearheading development of a rule-based interface for SQL queries.
 * Introduced automated front-end testing to improve quality and reduce regression issues.
 * Replaced outdated libraries with a modern tech stack.
+</div>
 
 ## Education
 #### Master of Science (Computer Science)
