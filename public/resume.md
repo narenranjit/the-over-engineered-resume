@@ -1,12 +1,16 @@
 # Naren Ranjit
 
+(415) 935-1432 • narendran.ranjit@gmail.com • linkedin.com/in/narenranjit
+
+## Summary
+
 I thrive at the intersection of product and engineering, leading teams in crafting products so seamless they feel invisible. I’ve helped launch multiple 0-1 products, bridging vision and execution by shipping fast and iterating often. I’ve scaled organizations through explosive growth and guided them during downturns, with a constant focus on resilience and adaptability. I foster engineering cultures that thrive on curiosity, speed, and purpose, where teams take initiative, act with clarity, and embrace risks, knowing that learning fuels growth.
 
 ## Experience
 
 ### Course Hero
 
-#### Senior Director of Engineering - 2022 - current
+#### Senior Director of Engineering [2022 - current]
 
 ##### AI/User Experience [2023 - current]
 
@@ -23,14 +27,14 @@ Shepherded a growing organization through the Covid-era EdTech boom, scaling to 
 - Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled headcount by 30%, while also boosting engagement scores by 7%.
 - Instituted DORA metrics to boost engineering efficiency, reducing lead-time by 20% and improving deployment pipeline throughput by 15%.
 
-#### Director of Engineering - [2021 - 2022]
+#### Director of Engineering [2021 - 2022]
 
 Owned engineering for the Question-and-Answer platform, one of our primary lines of business, generating ~$40M annually.
 
 - Piloted our first offshore team, creating onboarding and collaboration frameworks now integral to our operational strategies.
 - Proactively formed a volunteer-led team to improve Developer Experience, achieving 40% faster test runs and 35% CI speed improvement, resulting in a 80% engagement lift. Secured funding for a full-time team based on this success.
 
-#### Senior Engineering Manager - [2019 - 2021]
+#### Senior Engineering Manager [2019 - 2021]
 
 Led engineering for ‘Textbook Solutions,’ a multi-million-dollar product launch, resolving content licensing and product-market uncertainties to achieve an on-time, on-budget launch hitting key product goals.
 
@@ -39,7 +43,7 @@ Led engineering for ‘Textbook Solutions,’ a multi-million-dollar product lau
 
 ### Frontpage.to
 
-#### Founder 2017 - 2019
+#### Founder [2017 - 2019]
 
 Frontpage.to was a customizable content aggregation tool for creating personalized dashboards integrating email, social media, and blogs. Initially built for personal use, founded the company after validating market demand.
 
@@ -47,11 +51,11 @@ Frontpage.to was a customizable content aggregation tool for creating personaliz
 - Engaged directly with users to gather feedback, iterating on features to achieve a 50% Day-30 retention rate.
 - Owned every aspect of the product - from customer research to design and development — ensuring a cohesive vision that led to sustained engagement and growth.
 
-### Forio {.break-after-page}
+### Forio
 
-#### Director of Engineering 2014 - 2017
+#### Director of Engineering [2014 - 2017]
 
-#### Senior Engineering Manager 2011 - 2014
+#### Senior Engineering Manager [2011 - 2014]
 
 Led Forio's consulting division, collaborating with Harvard, Wharton, IBM, and Fortune 500 companies, to build data-rich web simulations. Also owned all user-facing elements of the platform.
 
@@ -60,7 +64,7 @@ Led Forio's consulting division, collaborating with Harvard, Wharton, IBM, and F
 - Served as lead architect for critical projects, including FlowJS—a framework-agnostic two-way data-binding tool I ideated, validated, and built.Owned design and specification of all REST APIs.
 - Wore multiple hats, taking on product management, design, and project management roles as needed.
 
-#### Web Developer 2008 - 2011
+#### Web Developer [2008 - 2011]
 
 Started as employee #3, driven by desire to have direct impact in a growing company. Developed user interfaces for data-rich web simulations, as well as frameworks to simplify their creation.
 
@@ -70,7 +74,7 @@ Started as employee #3, driven by desire to have direct impact in a growing comp
 
 ### Symantec
 
-#### Web Developer 2007 - 2008
+#### Web Developer [2007 - 2008]
 
 Originally joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expertise, and leveraged background in design to become front-end lead, spearheading development of a rule-based interface for SQL queries.
 
@@ -82,7 +86,7 @@ Originally joined as a Java Engineer on a backend-heavy team. Identified a gap i
 - Master of Science (Computer Science) | North Carolina State University | 2005 - 2007
 - Bachelor of Technology (Information Technology) | Anna University, India | 2001 - 2005
 
-## Personal Projects
+## Projects
 
 ### Chandrian https://marketplace.visualstudio.com/items?itemName=narenranjit.chandrian
 
