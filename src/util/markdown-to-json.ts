@@ -65,31 +65,31 @@ function markdownToJSON2(markdown: string) {
     ) as Tokens.Heading;
     if (!companyHeadingToken) break;
 
-    const roles = [];
     const companyDetailTokens = getSectionItems(remainingExperienceTokens, companyHeadingToken.text);
     const companyName = companyHeadingToken.text;
 
-    // let remainingRoles = companyGroup.slice();
-    // const firstRole = companyGroup[0] as Tokens.Heading;
-    // while (remainingRoles.length) {
-    //   const roleToken = remainingRoles.find(
-    //     (token) => token.type === "heading" && token.depth === firstRole.depth,
-    //   ) as Tokens.Heading;
-    //   if (!roleToken) break;
+    let remainingRoleTokens = companyDetailTokens.slice();
+    const firstRole = companyDetailTokens[0] as Tokens.Heading;
+    const roles = [];
+    while (remainingRoleTokens.length) {
+      const roleHeadingToken = remainingRoleTokens.find(
+        (token) => token.type === "heading" && token.depth === firstRole.depth,
+      ) as Tokens.Heading;
+      if (!roleHeadingToken) break;
 
-    //   const roleGroup = getSectionItems(remainingRoles, roleToken.text);
-    //   const [title, date] = roleToken.text.split("[");
-    //   const role = {
-    //     title: title.trim(),
-    //     // date: date ? date.replace("]", "").trim() : "",
-    //     // description: roleGroup[0].text,
-    //     // achievements: roleGroup.slice(1).map((token) => token.text),
-    //   };
-    //   roles.push(role);
-    //   remainingRoles = remainingRoles.slice(roleGroup.length);
-    // }
+      const roleDetailTokens = getSectionItems(remainingRoleTokens, roleHeadingToken.text);
+      const [title, date] = roleHeadingToken.text.split("[");
+      const role = {
+        title: title.trim(),
+        date: date ? date.replace("]", "").trim() : "",
+        // description: roleGroup[0].text,
+        // achievements: roleGroup.slice(1).map((token) => token.text),
+      };
+      roles.push(role);
+      remainingRoleTokens = remainingRoleTokens.slice(roleDetailTokens.length + 1);
+    }
 
-    jobs.push({ company: companyName });
+    jobs.push({ company: companyName, roles });
     remainingExperienceTokens = remainingExperienceTokens.slice(companyDetailTokens.length + 1);
   }
   console.log("jobs", jobs);
