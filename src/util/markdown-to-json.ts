@@ -1,6 +1,113 @@
 import { marked } from "marked";
+import type { Token, Tokens } from "marked";
 import type { Resume, Job, Project } from "./types";
+
+const resume2: Resume = {
+  name: "",
+  contact: [],
+  summary: "",
+  experience: [],
+  education: [],
+  projects: [],
+};
+
+function getSectionItems(list: Token[], heading: string) {
+  const headerToken = list.find(
+    (token) => token.type === "heading" && token.text.toLowerCase() === heading.toLowerCase(),
+  ) as Tokens.Heading;
+  if (!headerToken) return [];
+
+  const startDepth = headerToken.depth;
+  const startIndex = list.indexOf(headerToken);
+
+  const endIndex = list
+    .slice(startIndex + 1)
+    .findIndex((token) => token.type === "heading" && token.depth === startDepth);
+  const toReturn = list.slice(startIndex + 1, endIndex === -1 ? undefined : endIndex + startIndex);
+  // console.log("getSectionItems", heading, toReturn);
+  return toReturn;
+}
+
+function markdownToJSON2(markdown: string) {
+  const tokens = marked.lexer(markdown);
+  const resume: Resume = {
+    name: "",
+    contact: [],
+    summary: "",
+    experience: [],
+    education: [],
+    projects: [],
+  };
+
+  const nameToken = tokens.find((token) => token.type === "heading" && token.depth === 1)! as Tokens.Heading;
+  resume.name = nameToken.text;
+
+  const contact = tokens.find(
+    (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("linkedin") !== -1,
+  )! as Tokens.Paragraph;
+  resume.contact = contact.text.split(" • ");
+
+  const summaryHeaderIndex = tokens.findIndex(
+    (token) => token.type === "heading" && token.text.toLowerCase() === "summary",
+  )!;
+  const summaryText = tokens[summaryHeaderIndex + 1] as Tokens.Paragraph;
+  resume.summary = summaryText.text;
+
+  const experienceTokens = getSectionItems(tokens, "experience");
+  // console.log(experienceTokens);
+
+  let remainingExperienceTokens = experienceTokens.slice();
+  const firstCompany = experienceTokens[0] as Tokens.Heading;
+  const jobs = [];
+  while (remainingExperienceTokens.length) {
+    const companyHeadingToken = remainingExperienceTokens.find(
+      (token) => token.type === "heading" && token.depth === firstCompany.depth,
+    ) as Tokens.Heading;
+    if (!companyHeadingToken) break;
+
+    const roles = [];
+    const companyDetailTokens = getSectionItems(remainingExperienceTokens, companyHeadingToken.text);
+    const companyName = companyHeadingToken.text;
+
+    // let remainingRoles = companyGroup.slice();
+    // const firstRole = companyGroup[0] as Tokens.Heading;
+    // while (remainingRoles.length) {
+    //   const roleToken = remainingRoles.find(
+    //     (token) => token.type === "heading" && token.depth === firstRole.depth,
+    //   ) as Tokens.Heading;
+    //   if (!roleToken) break;
+
+    //   const roleGroup = getSectionItems(remainingRoles, roleToken.text);
+    //   const [title, date] = roleToken.text.split("[");
+    //   const role = {
+    //     title: title.trim(),
+    //     // date: date ? date.replace("]", "").trim() : "",
+    //     // description: roleGroup[0].text,
+    //     // achievements: roleGroup.slice(1).map((token) => token.text),
+    //   };
+    //   roles.push(role);
+    //   remainingRoles = remainingRoles.slice(roleGroup.length);
+    // }
+
+    jobs.push({ company: companyName });
+    remainingExperienceTokens = remainingExperienceTokens.slice(companyDetailTokens.length + 1);
+  }
+  console.log("jobs", jobs);
+  // resume.experience
+
+  // export interface Job {
+  //   company: string;
+  //   roles: {
+  //     title: string;
+  //     date: string;
+  //     description: string;
+  //     achievements: string[];
+  //   }[];
+  // }
+}
+
 export default function markdownToJSON(markdown: string): Resume {
+  markdownToJSON2(markdown);
   const tokens = marked.lexer(markdown);
 
   const resume: Resume = {
@@ -17,11 +124,21 @@ export default function markdownToJSON(markdown: string): Resume {
   let currentRole: Job["roles"][0] | null = null;
   let currentProject: Project | null = null;
 
+  const nameToken = tokens.find((token) => token.type === "heading" && token.depth === 1)! as Tokens.Heading;
+  resume.name = nameToken.text;
+
+  const contact = tokens.find(
+    (token) => token.type === "paragraph" && token.text.indexOf("linkedin") !== -1,
+  )! as Tokens.Paragraph;
+  resume.contact = contact.text.split(" • ");
+
+  const summaryHeaderIndex = tokens.findIndex((token) => token.type === "heading" && token.text === "Summary")!;
+  const summaryText = tokens[summaryHeaderIndex + 1] as Tokens.Paragraph;
+  resume.summary = summaryText.text;
+
   for (const token of tokens) {
     if (token.type === "heading") {
-      if (token.depth === 1) {
-        resume.name = token.text;
-      } else if (token.depth === 2) {
+      if (token.depth === 2) {
         currentSection = token.text.toLowerCase() as keyof Resume;
         if (currentSection === "experience") resume.experience = [];
         if (currentSection === "education") resume.education = [];
@@ -43,11 +160,7 @@ export default function markdownToJSON(markdown: string): Resume {
         resume.projects.push(currentProject);
       }
     } else if (token.type === "paragraph") {
-      if (currentSection === "") {
-        resume.contact = token.text.split(" • ");
-      } else if (currentSection === "summary") {
-        resume.summary = token.text;
-      } else if (currentProject) {
+      if (currentProject) {
         if (token.text.startsWith("Tech Stack:")) {
           currentProject.techStack = token.text.replace("Tech Stack:", "").trim();
         } else {

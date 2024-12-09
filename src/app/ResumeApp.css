@@ -10,8 +10,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@page {
+  size: A4;
+  margin: 0.5in 0.75in 0.5in 0.75in;
+}
+@media print {
+  body,
+  html {
+    background-color: silver;
+    margin: 0px;
+    padding: 0px;
+  }
 }

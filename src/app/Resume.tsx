@@ -1,7 +1,7 @@
 import type { Resume } from "../util/types";
 export default function Resume({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-4xl mx-auto p-8 font-sans text-gray-800">
+    <div className="max-w-4xl mx-auto font-sans text-gray-800">
       <header className="mb-4">
         <h1 className="text-4xl font-bold text-blue-600 mb-2">{resume.name}</h1>
         <ul className="flex flex-wrap justify-start space-x-2 text-sm">
