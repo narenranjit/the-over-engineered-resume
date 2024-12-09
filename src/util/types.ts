@@ -8,6 +8,28 @@ export interface Job {
   }[];
 }
 
+export interface Tenure {
+  start: number;
+  end?: number;
+}
+
+export interface Role {
+  title: string;
+  tenure: Tenure;
+  description?: string;
+  achievements?: string[];
+}
+
+export interface Title {
+  name: string;
+  role: Role[];
+}
+
+export interface JobNew {
+  companyName: string;
+  titles: Array<Title | Role>;
+}
+
 export interface Education {
   degree: string;
   institution: string;

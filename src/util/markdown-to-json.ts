@@ -1,6 +1,6 @@
 import { marked } from "marked";
 import type { Token, Tokens } from "marked";
-import type { Resume, Job, Project } from "./types";
+import type { Resume, Job, JobNew, Project, Title, Role, Tenure } from "./types";
 
 const resume2: Resume = {
   name: "",
@@ -58,7 +58,7 @@ function markdownToJSON2(markdown: string) {
 
   let remainingExperienceTokens = experienceTokens.slice();
   const firstCompany = experienceTokens[0] as Tokens.Heading;
-  const jobs = [];
+  const jobs: JobNew[] = [];
   while (remainingExperienceTokens.length) {
     const companyHeadingToken = remainingExperienceTokens.find(
       (token) => token.type === "heading" && token.depth === firstCompany.depth,
@@ -70,7 +70,7 @@ function markdownToJSON2(markdown: string) {
 
     let remainingRoleTokens = companyDetailTokens.slice();
     const firstRole = companyDetailTokens[0] as Tokens.Heading;
-    const roles = [];
+    const roles: Array<Title | Role> = [];
     while (remainingRoleTokens.length) {
       const roleHeadingToken = remainingRoleTokens.find(
         (token) => token.type === "heading" && token.depth === firstRole.depth,
@@ -79,17 +79,30 @@ function markdownToJSON2(markdown: string) {
 
       const roleDetailTokens = getSectionItems(remainingRoleTokens, roleHeadingToken.text);
       const [title, date] = roleHeadingToken.text.split("[");
-      const role = {
-        title: title.trim(),
-        date: date ? date.replace("]", "").trim() : "",
-        // description: roleGroup[0].text,
-        // achievements: roleGroup.slice(1).map((token) => token.text),
+      const dateStr = date.replace("]", "").trim().split("-");
+      const tenure: Tenure = {
+        start: +dateStr[0],
+        end: dateStr[1] && dateStr[1].trim() !== "current" ? +dateStr[1] : undefined,
       };
+      const role: Role = {
+        title: title.trim(),
+        tenure: tenure,
+      };
+      if (roleDetailTokens.length) {
+        if (roleDetailTokens[0].type !== "heading") {
+          const roleDescriptionToken = roleDetailTokens.find((token) => token.type === "paragraph") as Tokens.Paragraph;
+          const achievementsToken = roleDetailTokens.find((token) => token.type === "list") as Tokens.List;
+          role.description = roleDescriptionToken.text;
+          role.achievements = achievementsToken.items.map((item) => item.text);
+        } else {
+          //has multiple items with the same heading
+        }
+      }
       roles.push(role);
       remainingRoleTokens = remainingRoleTokens.slice(roleDetailTokens.length + 1);
     }
 
-    jobs.push({ company: companyName, roles });
+    jobs.push({ companyName: companyName, titles: roles });
     remainingExperienceTokens = remainingExperienceTokens.slice(companyDetailTokens.length + 1);
   }
   console.log("jobs", jobs);
