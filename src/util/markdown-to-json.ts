@@ -2,15 +2,7 @@ import { marked } from "marked";
 import type { Token, Tokens } from "marked";
 import type { Resume, Job, JobNew, Project, Title, Role, Tenure } from "./types";
 
-const resume2: Resume = {
-  name: "",
-  contact: [],
-  summary: "",
-  experience: [],
-  education: [],
-  projects: [],
-};
-
+//Items between a heading and the next heading at the same depth
 function getSectionItems(list: Token[], heading: string) {
   const headerToken = list.find(
     (token) => token.type === "heading" && token.text.toLowerCase() === heading.toLowerCase(),
@@ -24,10 +16,50 @@ function getSectionItems(list: Token[], heading: string) {
     .slice(startIndex + 1)
     .findIndex((token) => token.type === "heading" && token.depth === startDepth);
   const toReturn = list.slice(startIndex + 1, endIndex === -1 ? undefined : endIndex + startIndex);
-  // console.log("getSectionItems", heading, toReturn);
   return toReturn;
 }
 
+function retreiveListItemText(listDetailTokens: Token[]): string[] {
+  if (!listDetailTokens || !listDetailTokens.length) return [];
+  const list = listDetailTokens.find((token) => token.type === "list") as Tokens.List;
+  return list.items.map((item) => item.text);
+}
+function retreiveParagraphText(tokens: Token[]): string {
+  if (!tokens || !tokens.length) return "";
+  const list = tokens.filter((token) => token.type === "paragraph") as Tokens.Paragraph[];
+  const text = list.map((item) => item.text).join("\n");
+  return text;
+}
+
+function processNestedTokens<T>(tokens: Token[], processItem: (tokens: Token[], heading: Tokens.Heading) => T): T[] {
+  let remainingTokens = tokens.slice();
+  const items: T[] = [];
+  const depth = (tokens[0] as Tokens.Heading).depth;
+
+  while (remainingTokens.length) {
+    const headingToken = remainingTokens.find(
+      (token) => token.type === "heading" && token.depth === depth,
+    ) as Tokens.Heading;
+    if (!headingToken) break;
+
+    const detailTokens = getSectionItems(remainingTokens, headingToken.text);
+    const item = processItem(detailTokens, headingToken);
+    items.push(item);
+
+    remainingTokens = remainingTokens.slice(detailTokens.length + 1);
+  }
+  return items;
+}
+
+function extractTitleAndTenure(header: string): [string, Tenure] {
+  const [title, date] = header.split("[");
+  const dateStr = date.replace("]", "").replace("[", "").trim().split("-");
+  const tenure: Tenure = {
+    start: +dateStr[0],
+    end: dateStr[1] && dateStr[1].trim() !== "current" ? +dateStr[1] : undefined,
+  };
+  return [title.trim(), tenure];
+}
 function markdownToJSON2(markdown: string) {
   const tokens = marked.lexer(markdown);
   const resume: Resume = {
@@ -54,86 +86,36 @@ function markdownToJSON2(markdown: string) {
   resume.summary = summaryText.text;
 
   const experienceTokens = getSectionItems(tokens, "experience");
-  // console.log(experienceTokens);
-
-  let remainingExperienceTokens = experienceTokens.slice();
-  const firstCompany = experienceTokens[0] as Tokens.Heading;
-  const jobs: JobNew[] = [];
-  while (remainingExperienceTokens.length) {
-    const companyHeadingToken = remainingExperienceTokens.find(
-      (token) => token.type === "heading" && token.depth === firstCompany.depth,
-    ) as Tokens.Heading;
-    if (!companyHeadingToken) break;
-
-    const companyDetailTokens = getSectionItems(remainingExperienceTokens, companyHeadingToken.text);
+  const experienceJSON = processNestedTokens<JobNew>(experienceTokens, (companyDetailTokens, companyHeadingToken) => {
     const companyName = companyHeadingToken.text;
-
-    let remainingRoleTokens = companyDetailTokens.slice();
-    const firstRole = companyDetailTokens[0] as Tokens.Heading;
-    const roles: Array<Title | Role> = [];
-    while (remainingRoleTokens.length) {
-      const roleHeadingToken = remainingRoleTokens.find(
-        (token) => token.type === "heading" && token.depth === firstRole.depth,
-      ) as Tokens.Heading;
-      if (!roleHeadingToken) break;
-
-      const roleDetailTokens = getSectionItems(remainingRoleTokens, roleHeadingToken.text);
-      const [title, date] = roleHeadingToken.text.split("[");
-      const dateStr = date.replace("]", "").trim().split("-");
-      const tenure: Tenure = {
-        start: +dateStr[0],
-        end: dateStr[1] && dateStr[1].trim() !== "current" ? +dateStr[1] : undefined,
-      };
+    const roles = processNestedTokens<Title | Role>(companyDetailTokens, (roleDetailTokens, roleHeadingToken) => {
+      const [title, tenure] = extractTitleAndTenure(roleHeadingToken.text);
       const role: Role = {
-        title: title.trim(),
-        tenure: tenure,
+        title,
+        tenure,
       };
       if (!roleDetailTokens.length) {
-        roles.push(role);
-      } else if (roleDetailTokens[0].type !== "heading") {
-        const roleDescriptionToken = roleDetailTokens.find((token) => token.type === "paragraph") as Tokens.Paragraph;
-        const achievementsToken = roleDetailTokens.find((token) => token.type === "list") as Tokens.List;
-        role.description = roleDescriptionToken.text;
-        role.achievements = achievementsToken.items.map((item) => item.text);
-        roles.push(role);
+        return role;
+      } else if (roleDetailTokens[0].type === "heading") {
+        role.description = retreiveParagraphText(roleDetailTokens);
+        role.achievements = retreiveListItemText(roleDetailTokens);
+        return role;
       } else {
-        let remainingTitleTokens = roleDetailTokens.slice();
-        const firstTitle = remainingTitleTokens[0] as Tokens.Heading;
-        const titles: Role[] = [];
-        while (remainingTitleTokens.length) {
-          const titleHeadingToken = remainingTitleTokens.find(
-            (token) => token.type === "heading" && token.depth === firstTitle.depth,
-          ) as Tokens.Heading;
-          if (!titleHeadingToken) break;
-
-          const titleDetailTokens = getSectionItems(remainingTitleTokens, titleHeadingToken.text);
-          const [text, date] = titleHeadingToken.text.split("[");
-          const dateStr = date.replace("]", "").trim().split("-");
-          const tenure: Tenure = {
-            start: +dateStr[0],
-            end: dateStr[1] && dateStr[1].trim() !== "current" ? +dateStr[1] : undefined,
-          };
-          const descriptionToken = titleDetailTokens.find((token) => token.type === "paragraph") as Tokens.Paragraph;
-          const achievementsToken = titleDetailTokens.find((token) => token.type === "list") as Tokens.List;
-          titles.push({
-            title: text.trim(),
+        const titles = processNestedTokens<Role>(roleDetailTokens, (titleDetailTokens, titleHeadingToken) => {
+          const [title, tenure] = extractTitleAndTenure(titleHeadingToken.text);
+          return {
+            title: title,
             tenure: tenure,
-            description: descriptionToken.text,
-            achievements: achievementsToken.items.map((item) => item.text),
-          });
-          remainingTitleTokens = remainingTitleTokens.slice(titleDetailTokens.length + 1);
-        }
-        roles.push({ name: firstTitle.text.trim(), role: titles });
-        //has multiple items with the same heading
+            description: retreiveParagraphText(titleDetailTokens),
+            achievements: retreiveListItemText(titleDetailTokens),
+          };
+        });
+        return { name: roleHeadingToken.text.trim(), role: titles };
       }
-
-      remainingRoleTokens = remainingRoleTokens.slice(roleDetailTokens.length + 1);
-    }
-
-    jobs.push({ companyName: companyName, titles: roles });
-    remainingExperienceTokens = remainingExperienceTokens.slice(companyDetailTokens.length + 1);
-  }
-  console.log("jobs", jobs);
+    });
+    return { companyName: companyName, titles: roles };
+  });
+  console.log("jobs", experienceJSON);
   // resume.experience
 
   // export interface Job {
