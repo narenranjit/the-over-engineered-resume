@@ -21,20 +21,22 @@ export default function Resume({ resume }: { resume: Resume }) {
       <section className="mb-6">
         <h2 className="text-2xl font-bold mb-6 border-b border-gray-300 pb-2">Experience</h2>
         {resume.experience.map((job, jobIndex) => (
-          <div key={jobIndex} className="mb-4">
+          <div key={jobIndex} className="mb-2">
             <div className="flex items-start">
               <div className="flex-grow">
                 <h3 className="font-bold text-xl mb-2">{job.company}</h3>
                 {job.roles.map((role, roleIndex) => (
-                  <div key={roleIndex} className="mb-6 border-l-4 border-blue-500 pl-4">
+                  <div key={roleIndex} className="mb-6">
                     <div className="flex justify-between mb-2">
                       <h4 className="font-semibold text-lg">{role.title}</h4>
                       <span className="text-sm text-gray-600">{role.date}</span>
                     </div>
                     <p className="text-sm mb-2">{role.description}</p>
-                    <ul className="list-disc pl-5 text-sm space-y-1">
+                    <ul className="list-disc pl-4 text-sm space-y-1 marker:text-gray-400">
                       {role.achievements.map((achievement, achievementIndex) => (
-                        <li key={achievementIndex}>{achievement}</li>
+                        <li key={achievementIndex} style={{ marginLeft: "-2px" }}>
+                          {achievement}
+                        </li>
                       ))}
                     </ul>
                   </div>
