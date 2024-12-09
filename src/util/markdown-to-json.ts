@@ -88,17 +88,45 @@ function markdownToJSON2(markdown: string) {
         title: title.trim(),
         tenure: tenure,
       };
-      if (roleDetailTokens.length) {
-        if (roleDetailTokens[0].type !== "heading") {
-          const roleDescriptionToken = roleDetailTokens.find((token) => token.type === "paragraph") as Tokens.Paragraph;
-          const achievementsToken = roleDetailTokens.find((token) => token.type === "list") as Tokens.List;
-          role.description = roleDescriptionToken.text;
-          role.achievements = achievementsToken.items.map((item) => item.text);
-        } else {
-          //has multiple items with the same heading
+      if (!roleDetailTokens.length) {
+        roles.push(role);
+      } else if (roleDetailTokens[0].type !== "heading") {
+        const roleDescriptionToken = roleDetailTokens.find((token) => token.type === "paragraph") as Tokens.Paragraph;
+        const achievementsToken = roleDetailTokens.find((token) => token.type === "list") as Tokens.List;
+        role.description = roleDescriptionToken.text;
+        role.achievements = achievementsToken.items.map((item) => item.text);
+        roles.push(role);
+      } else {
+        let remainingTitleTokens = roleDetailTokens.slice();
+        const firstTitle = remainingTitleTokens[0] as Tokens.Heading;
+        const titles: Role[] = [];
+        while (remainingTitleTokens.length) {
+          const titleHeadingToken = remainingTitleTokens.find(
+            (token) => token.type === "heading" && token.depth === firstTitle.depth,
+          ) as Tokens.Heading;
+          if (!titleHeadingToken) break;
+
+          const titleDetailTokens = getSectionItems(remainingTitleTokens, titleHeadingToken.text);
+          const [text, date] = titleHeadingToken.text.split("[");
+          const dateStr = date.replace("]", "").trim().split("-");
+          const tenure: Tenure = {
+            start: +dateStr[0],
+            end: dateStr[1] && dateStr[1].trim() !== "current" ? +dateStr[1] : undefined,
+          };
+          const descriptionToken = titleDetailTokens.find((token) => token.type === "paragraph") as Tokens.Paragraph;
+          const achievementsToken = titleDetailTokens.find((token) => token.type === "list") as Tokens.List;
+          titles.push({
+            title: text.trim(),
+            tenure: tenure,
+            description: descriptionToken.text,
+            achievements: achievementsToken.items.map((item) => item.text),
+          });
+          remainingTitleTokens = remainingTitleTokens.slice(titleDetailTokens.length + 1);
         }
+        roles.push({ name: firstTitle.text.trim(), role: titles });
+        //has multiple items with the same heading
       }
-      roles.push(role);
+
       remainingRoleTokens = remainingRoleTokens.slice(roleDetailTokens.length + 1);
     }
 
