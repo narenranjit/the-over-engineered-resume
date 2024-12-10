@@ -83,8 +83,8 @@ Originally joined as a Java Engineer on a backend-heavy team. Identified a gap i
 
 ## Education
 
-- Master of Science (Computer Science) | North Carolina State University | 2005 - 2007
-- Bachelor of Technology (Information Technology) | Anna University, India | 2001 - 2005
+- Master of Science, Computer Science | North Carolina State University | 2005 - 2007
+- Bachelor of Technology, Information Technology | Anna University, India | 2001 - 2005
 
 ## Personal Projects
 

@@ -147,9 +147,11 @@ export default function markdownToResume(markdown: string): Resume {
       (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("link:") === 0,
     ) as Tokens.Paragraph;
     const link = linkText && linkText.text.replace("Link:", "").trim();
+
+    const description = (projectDetailTokens[0]! as Tokens.Paragraph).text;
     return {
       name: projectHeadingToken.text,
-      description: "bar",
+      description,
       link,
       techStack,
     };
