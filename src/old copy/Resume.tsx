@@ -33,7 +33,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
   }
   function Date({ from, to }: { from: number; to: number | undefined }) {
     return (
-      <span className="text-sm text-gray-600">
+      <span className="text-sm">
         {from} - {to || "current"}
       </span>
     );
@@ -46,17 +46,17 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   }) {
     if (type === "h1") {
-      return <h1 className="text-4xl font-bold text-blue-600">{children}</h1>;
+      return <h1 className="font-bold text-4xl text-blue-600">{children}</h1>;
     } else if (type === "h2") {
-      return <h2 className="text-xl font-bold">{children}</h2>;
+      return <h2 className="font-bold text-xl mb-3">{children}</h2>;
     } else if (type === "h3") {
       return <h3 className="font-semibold text-lg">{children}</h3>;
     } else if (type === "h4") {
-      return <h4 className="font-semibold text-base">{children}</h4>;
+      return <h4 className="font-bold text-base">{children}</h4>;
     } else if (type === "h5") {
       return <h5 className="font-semibold text-sm">{children}</h5>;
     } else if (type === "h6") {
-      return <h6 className=" text-sm">{children}</h6>;
+      return <h6 className=" text-sm font-semibold">{children}</h6>;
     }
   }
 
@@ -68,6 +68,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     const parsed = marked.parse(children) as string;
     return <p className="text-sm" dangerouslySetInnerHTML={{ __html: parsed }}></p>;
   }
+  function Logo({ company }: { company: string }) {
+    const fileName = company.toLowerCase().replace(" ", "-");
+    return <img src={`assets/${fileName}.png`} alt={company} className="h-3 inline-block mr-1" />;
+  }
   return (
     <div className="max-w-4xl mx-auto font-sans text-gray-800">
       <header>
@@ -75,17 +79,18 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         <div className="my-2">
           <InlineList list={resume.contact} />
         </div>
-      </header>
-      <Section>
-        <div className="my-2">
+        <div className="my-4">
           <Text>{resume.summary}</Text>
         </div>
-      </Section>
+      </header>
       <Section>
-        <Heading type="h4">Experience</Heading>
+        <Heading type="h2">Experience</Heading>
         {resume.experience.map((job, jobIndex) => (
           <Section level={2} key={jobIndex}>
-            <Heading type="h3">{job.companyName}</Heading>
+            <Heading type="h5">
+              <Logo company={job.companyName} />
+              {job.companyName}
+            </Heading>
             {job.titles.map((title, titleIndex) => (
               <Section level={3} key={titleIndex}>
                 <div className="flex justify-between">
