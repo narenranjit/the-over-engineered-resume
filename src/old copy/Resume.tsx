@@ -46,7 +46,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     } else if (type === "h2") {
       return <h2 className="text-xl font-bold">{children}</h2>;
     } else if (type === "h3") {
-      return <h3 className="font-bold text-lg">{children}</h3>;
+      return <h3 className="font-semibold text-lg">{children}</h3>;
     } else if (type === "h4") {
       return <h4 className="font-semibold text-base">{children}</h4>;
     } else if (type === "h5") {
@@ -80,7 +80,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                   <>
                     {title.role.map((role, roleIndex) => (
                       <div key={roleIndex}>
-                        <Heading type="h5">{role.name}</Heading>
+                        <div className="flex justify-between">
+                          <Heading type="h5">{role.name}</Heading>
+                          <span className="text-xs text-gray-600">{role.tenure.start}</span>
+                        </div>
                         <p className="text-sm">{role.description}</p>
                         <VerticalList list={role.achievements} />
                       </div>
