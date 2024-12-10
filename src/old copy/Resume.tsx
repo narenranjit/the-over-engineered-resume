@@ -34,7 +34,13 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       </span>
     );
   }
-  function Heading({ children, type }: { children: React.ReactNode; type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" }) {
+  function Heading({
+    children,
+    type,
+  }: {
+    children: React.ReactNode;
+    type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  }) {
     if (type === "h1") {
       return <h1 className="text-4xl font-bold text-blue-600">{children}</h1>;
     } else if (type === "h2") {
@@ -52,32 +58,30 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
 
   return (
     <div className="max-w-4xl mx-auto font-sans text-gray-800">
-      <header className="mb-4">
-        <div className="mb-2">
-          <Heading type="h1">{resume.name}</Heading>
-        </div>
+      <header>
+        <Heading type="h1">{resume.name}</Heading>
         <InlineList list={resume.contact} />
       </header>
-      <section className="mb-6">
+      <section>
         <p className="text-sm">{resume.summary}</p>
       </section>
-      <section className="mb-6">
+      <section>
         <Heading type="h2">Experience</Heading>
         {resume.experience.map((job, jobIndex) => (
-          <div key={jobIndex} className="mb-2">
+          <div key={jobIndex}>
             <Heading type="h3">{job.companyName}</Heading>
             {job.titles.map((title, titleIndex) => (
-              <div key={titleIndex} className="mb-6">
-                <div className="flex justify-between mb-2">
+              <div key={titleIndex}>
+                <div className="flex justify-between">
                   <Heading type="h4">{title.name}</Heading>
                   <Date from={title.tenure.start} to={title.tenure.end} />
                 </div>
                 {"role" in title && (
                   <>
                     {title.role.map((role, roleIndex) => (
-                      <div key={roleIndex} className="mb-4">
+                      <div key={roleIndex}>
                         <Heading type="h5">{role.name}</Heading>
-                        <p className="text-sm mt-2">{role.description}</p>
+                        <p className="text-sm">{role.description}</p>
                         <VerticalList list={role.achievements} />
                       </div>
                     ))}
@@ -85,7 +89,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                 )}
                 {!("role" in title) && (
                   <>
-                    {title.description && <p className="text-sm mb-2">{title.description}</p>}
+                    {title.description && <p className="text-sm">{title.description}</p>}
                     <VerticalList list={title.achievements} />
                   </>
                 )}
@@ -94,10 +98,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
           </div>
         ))}
       </section>
-      <section className="mb-6">
-        <h2 className="text-2xl font-bold mb-6 border-b border-gray-300 pb-2">Education</h2>
+      <section>
+        <Heading type="h2">Education</Heading>
         {resume.education.map((edu, index) => (
-          <div key={index} className="mb-4">
+          <div key={index}>
             <div className="flex justify-between">
               <Heading type="h4">{edu.degree}</Heading>
               <Date from={edu.date.start} to={edu.date.end} />
@@ -108,11 +112,11 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-6 border-b border-gray-300 pb-2">Personal Projects</h2>
+        <Heading type="h2">Personal Projects</Heading>
         {resume.projects.map((project, index) => (
-          <div key={index} className="mb-4">
+          <div key={index}>
             <Heading type="h4">{project.name}</Heading>
-            <p className="text-sm mt-2">{project.description}</p>
+            <p className="text-sm">{project.description}</p>
             {project.techStack && (
               <div className="flex items-center space-x-2">
                 <Heading type="h6">Tech Stack:</Heading>
