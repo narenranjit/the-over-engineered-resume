@@ -30,7 +30,7 @@ export interface JobNew {
   titles: Array<Title | Role>;
 }
 
-interface PersonalProject {
+export interface PersonalProject {
   name: string;
   description: string;
   techStack?: string[];
@@ -40,7 +40,7 @@ interface PersonalProject {
 export interface Education {
   degree: string;
   institution: string;
-  date: string;
+  date: Tenure;
 }
 
 export interface Project {

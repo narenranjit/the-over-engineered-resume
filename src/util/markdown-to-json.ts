@@ -1,6 +1,6 @@
 import { marked } from "marked";
 import type { Token, Tokens } from "marked";
-import type { Resume, Job, JobNew, Project, Title, Role, Tenure, PersonalProject } from "./types";
+import type { Resume, Education, Job, JobNew, Project, Title, Role, Tenure, PersonalProject } from "./types";
 
 //Items between a heading and the next heading at the same depth
 function getSectionItems(list: Token[], heading: string) {
@@ -63,9 +63,17 @@ function extractTitleAndTenure(header: string): [string, Tenure] {
   const [title, date] = header.split("[");
   return [title.trim(), tenureFromDate(date)];
 }
-function markdownToJSON2(markdown: string) {
+interface ResumeNew {
+  name: string;
+  contact: string[];
+  summary: string;
+  experience: JobNew[];
+  education: Education[];
+  projects: PersonalProject[];
+}
+function markdownToResume(markdown: string): ResumeNew {
   const tokens = marked.lexer(markdown);
-  const resume: Resume = {
+  const resume: ResumeNew = {
     name: "",
     contact: [],
     summary: "",
@@ -118,6 +126,7 @@ function markdownToJSON2(markdown: string) {
     });
     return { companyName: companyName, titles: roles };
   });
+  resume.experience = experienceJSON;
   console.log("jobs", experienceJSON);
 
   const educationTokens = getSectionItems(tokens, "education")![0] as Tokens.List;
@@ -125,7 +134,8 @@ function markdownToJSON2(markdown: string) {
     const [degree, institution, date] = item.text.split(" | ");
     return { degree: degree.trim(), institution: institution.trim(), date: tenureFromDate(date) };
   });
-  console.log("education", education);
+  resume.education = education;
+  // console.log("education", education);
 
   const ppTokens = getSectionItems(tokens, "Personal Projects");
   const ppJSON = processNestedTokens<PersonalProject>(ppTokens, (projectDetailTokens, projectHeadingToken) => {
@@ -151,22 +161,14 @@ function markdownToJSON2(markdown: string) {
       techStack,
     };
   });
-  console.log(ppJSON);
-  // resume.experience
+  resume.projects = ppJSON;
+  // console.log(ppJSON);
 
-  // export interface Job {
-  //   company: string;
-  //   roles: {
-  //     title: string;
-  //     date: string;
-  //     description: string;
-  //     achievements: string[];
-  //   }[];
-  // }
+  return resume;
 }
 
 export default function markdownToJSON(markdown: string): Resume {
-  markdownToJSON2(markdown);
+  console.log(markdownToResume(markdown));
   const tokens = marked.lexer(markdown);
 
   const resume: Resume = {
