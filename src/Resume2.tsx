@@ -47,14 +47,12 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         <div className="space-y-6">
           {resume.experience.map((job, jobIndex) => (
             <>
+              <span>{job.companyName}</span>
+
               {job.titles.map((title, titleIndex) => (
                 <div>
                   <div className="flex justify-between items-baseline">
-                    <div>
-                      <span className="font-bold">{title.name}</span>
-                      <span className="mx-2">-</span>
-                      <span>{job.companyName}</span>
-                    </div>
+                    <span className="font-bold">{title.name}</span>
                     <Date from={title.tenure.start} to={title.tenure.end} />
                   </div>
                   {"role" in title && (
