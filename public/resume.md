@@ -16,30 +16,30 @@ I thrive at the intersection of product and engineering, leading teams in crafti
 
 Lead cross-functional ML and engineering org during a challenging phase as LLMs disrupted the EdTech landscape. Focused on launching innovative products to secure product-market fit.
 
-- Transitioned ML strategy from in-house to foundational models, improving scalability and accelerating time-to-market.
-- Fostered a customer-centric culture connecting engineers with users, with 70% of ICs engaging in at least 1 monthly customer interaction.
-- Promoted a learning-driven development cycle, increasing AB-tests by 50% to drive rapid hypothesis validation and product iteration.
+- Transitioned **ML strategy** from in-house to foundational models, improving scalability and accelerating time-to-market.
+- Fostered a **customer-centric culture** connecting engineers with users, with 70% of ICs engaging in at least 1 monthly customer interaction.
+- Promoted a learning-driven development cycle, increasing **AB-tests by 50%** to drive rapid hypothesis validation and product iteration.
 
 ##### Platform Experiences [2022 - 2023]
 
 Shepherded a growing organization through the Covid-era EdTech boom, scaling to meet surging demand while focusing on engineering efficiency and user engagement.
 
-- Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled headcount by 30%, while also boosting engagement scores by 7%.
-- Instituted DORA metrics to boost engineering efficiency, reducing lead-time by 20% and improving deployment pipeline throughput by 15%.
+- Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled **headcount by 30%**, while also boosting **engagement scores by 7%**.
+- Instituted DORA metrics to boost engineering efficiency, reducing **lead-time by 20%** and improving deployment pipeline throughput by 15%.
 
 #### Director of Engineering [2021 - 2022]
 
 Owned engineering for the Question-and-Answer platform, one of our primary lines of business, generating ~$40M annually.
 
-- Piloted our first offshore team, creating onboarding and collaboration frameworks now integral to our operational strategies.
-- Proactively formed a volunteer-led team to improve Developer Experience, achieving 40% faster test runs and 35% CI speed improvement, resulting in a 80% engagement lift. Secured funding for a full-time team based on this success.
+- Piloted our **first offshore team**, creating onboarding and collaboration frameworks now integral to our operational strategies.
+- Proactively formed a volunteer-led team to improve Developer Experience, achieving **40% faster test runs** and 35% CI speed improvement, resulting in a **80% engagement lift**. Secured funding for a full-time team based on this success.
 
 #### Senior Engineering Manager [2019 - 2021]
 
 Led engineering for ‘Textbook Solutions,’ a multi-million-dollar product launch, resolving content licensing and product-market uncertainties to achieve an on-time, on-budget launch hitting key product goals.
 
-- Championed a Skunkworks project to launch mobile and desktop apps in 4 weeks (initial estimates were months). These apps contributed to 30% of platform traffic and were recognized as a ‘Recommended App’ on the Windows Store.
-- Achieved an 80% promotion rate among 12 direct reports through mentorship and coaching for impact.
+- Championed a **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These apps contributed to **30% of platform traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
+- Achieved an **80% promotion rate** among 12 direct reports through mentorship and coaching for impact.
 
 ### Frontpage.to
 
@@ -47,9 +47,9 @@ Led engineering for ‘Textbook Solutions,’ a multi-million-dollar product lau
 
 Frontpage.to was a customizable content aggregation tool for creating personalized dashboards integrating email, social media, and blogs. Initially built for personal use, founded the company after validating market demand.
 
-- Scaled to 10K Daily Active Users through organic marketing and community-building.
-- Engaged directly with users to gather feedback, iterating on features to achieve a 50% Day-30 retention rate.
-- Owned every aspect of the product - from customer research to design and development — ensuring a cohesive vision that led to sustained engagement and growth.
+- Scaled to **10K Daily Active Users** through organic marketing and community-building.
+- Engaged directly with users to gather feedback, iterating on features to achieve a **50% Day-30 retention rate**.
+- **Owned every aspect of the product** - from customer research to design and development — ensuring a cohesive vision that led to sustained engagement and growth.
 
 ### Forio
 
@@ -59,10 +59,10 @@ Frontpage.to was a customizable content aggregation tool for creating personaliz
 
 Led Forio's consulting division, collaborating with Harvard, Wharton, IBM, and Fortune 500 companies, to build data-rich web simulations. Also owned all user-facing elements of the platform.
 
-- Grew team from 3 to 30, establishing scalable hiring processes and engineering best practices.
-- Led consulting engagements, from sales calls to drafting SoWs, and developed an estimation framework with 90% accuracy.
-- Served as lead architect for critical projects, including FlowJS—a framework-agnostic two-way data-binding tool I ideated, validated, and built.Owned design and specification of all REST APIs.
-- Wore multiple hats, taking on product management, design, and project management roles as needed.
+- **Grew team from 3 to 30**, establishing scalable hiring processes and engineering best practices.
+- **Led consulting** engagements, from sales calls to drafting SoWs, and developed an estimation framework with 90% accuracy.
+- Served as **lead architect** for critical projects, including FlowJS—a framework-agnostic two-way data-binding tool I ideated, validated, and built.Owned design and specification of all REST APIs.
+- Wore **multiple hats**, taking on product management, design, and project management roles as needed.
 
 #### Web Developer [2008 - 2011]
 
@@ -79,7 +79,6 @@ Started as employee #3, driven by desire to have direct impact in a growing comp
 Originally joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expertise, and leveraged background in design to become front-end lead, spearheading development of a rule-based interface for SQL queries.
 
 - Introduced automated front-end testing to improve quality and reduce regression issues.
-- Replaced outdated libraries with a modern tech stack.
 
 ## Education
 

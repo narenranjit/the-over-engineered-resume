@@ -1,30 +1,34 @@
 import type { Resume } from "./util/types";
+import { marked } from "marked";
+
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   function VerticalList({ list }: { list: string[] | undefined }) {
+    if (!list) return null;
+    const parsed = list.map((item) => marked.parse(item));
     return (
-      list && (
-        <ul className="list-disc pl-4 text-sm space-y-1 marker:text-gray-400">
-          {list.map((text, index) => (
-            <li key={index} style={{ marginLeft: "-2px" }}>
-              {text}
-            </li>
-          ))}
-        </ul>
-      )
+      <ul className="list-disc pl-4 text-sm space-y-1 marker:text-gray-400">
+        {parsed.map((text, index) => (
+          <li
+            key={index}
+            style={{ marginLeft: "-2px" }}
+            dangerouslySetInnerHTML={{ __html: text }}
+          ></li>
+        ))}
+      </ul>
     );
   }
   function InlineList({ list }: { list: string[] | undefined }) {
+    if (!list) return null;
+    const parsed = list.map((item) => marked.parse(item));
     return (
-      list && (
-        <ul className="flex flex-wrap justify-start space-x-2 text-sm">
-          {list.map((text, index) => (
-            <li key={index} className="flex items-center">
-              {index > 0 && <span className="mr-2 text-gray-400">•</span>}
-              {text}
-            </li>
-          ))}
-        </ul>
-      )
+      <ul className="flex flex-wrap justify-start space-x-2 text-sm">
+        {parsed.map((text, index) => (
+          <li key={index} className="flex items-center">
+            {index > 0 && <span className="mr-2 text-gray-400">•</span>}
+            <span dangerouslySetInnerHTML={{ __html: text }}></span>
+          </li>
+        ))}
+      </ul>
     );
   }
   function Date({ from, to }: { from: number; to: number | undefined }) {
@@ -52,28 +56,33 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     } else if (type === "h5") {
       return <h5 className="font-semibold text-sm">{children}</h5>;
     } else if (type === "h6") {
-      return <h6 className="font-semibold text-sm">{children}</h6>;
+      return <h6 className=" text-sm">{children}</h6>;
     }
   }
 
-  function Section({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
-    const levels = ["mb-8", "mb-6", "mb-4", "mb-2"];
+  function Section({ children, level = 2 }: { children: React.ReactNode; level?: number }) {
+    const levels = ["mb-8", "mb-8", "mb-6", "mb-4"];
     return <section className={levels[level - 1]}>{children}</section>;
   }
-  function Text({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
-    return <p className="text-sm">{children}</p>;
+  function Text({ children, level = 1 }: { children: string; level?: number }) {
+    const parsed = marked.parse(children) as string;
+    return <p className="text-sm" dangerouslySetInnerHTML={{ __html: parsed }}></p>;
   }
   return (
     <div className="max-w-4xl mx-auto font-sans text-gray-800">
       <header>
         <Heading type="h1">{resume.name}</Heading>
-        <InlineList list={resume.contact} />
+        <div className="my-2">
+          <InlineList list={resume.contact} />
+        </div>
       </header>
       <Section>
-        <Text>{resume.summary}</Text>
+        <div className="my-2">
+          <Text>{resume.summary}</Text>
+        </div>
       </Section>
       <Section>
-        <Heading type="h2">Experience</Heading>
+        <Heading type="h4">Experience</Heading>
         {resume.experience.map((job, jobIndex) => (
           <Section level={2} key={jobIndex}>
             <Heading type="h3">{job.companyName}</Heading>
@@ -88,10 +97,14 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                     {title.role.map((role, roleIndex) => (
                       <Section level={4} key={roleIndex}>
                         <div className="flex justify-between">
-                          <Heading type="h5">{role.name}</Heading>
+                          <Heading type="h6">{role.name}</Heading>
                           <span className="text-xs text-gray-600">{role.tenure.start}</span>
                         </div>
-                        <Text>{role.description}</Text>
+                        {role.description && (
+                          <div className="my-2">
+                            <Text>{role.description}</Text>
+                          </div>
+                        )}
                         <VerticalList list={role.achievements} />
                       </Section>
                     ))}
@@ -99,7 +112,11 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                 )}
                 {!("role" in title) && (
                   <>
-                    {title.description && <Text>{title.description}</Text>}
+                    {title.description && (
+                      <div className="my-2">
+                        <Text>{title.description}</Text>
+                      </div>
+                    )}
                     <VerticalList list={title.achievements} />
                   </>
                 )}
