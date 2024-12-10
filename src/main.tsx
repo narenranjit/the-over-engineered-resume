@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import ResumePage from "./old copy/ResumeApp.tsx";
+import ResumePage from "./ResumeApp.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
