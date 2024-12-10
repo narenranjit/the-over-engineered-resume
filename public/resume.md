@@ -86,18 +86,22 @@ Originally joined as a Java Engineer on a backend-heavy team. Identified a gap i
 - Master of Science (Computer Science) | North Carolina State University | 2005 - 2007
 - Bachelor of Technology (Information Technology) | Anna University, India | 2001 - 2005
 
-## Projects
+## Personal Projects
 
-### Chandrian https://marketplace.visualstudio.com/items?itemName=narenranjit.chandrian
+### Chandrian
 
 A semantic syntax highlighting theme for VSCode, designed to make scanning large codebases easier and to highlight errors more effectively. Fully accessible, meeting “AA” WCAG standards. I created this for personal use, addressing frustrations I had with existing options, and has since gained traction with over 3,000 active users.
+
+Link: https://marketplace.visualstudio.com/items?itemName=narenranjit.chandrian
 
 ### Feelings.earth
 
 A visualization of emotions on Twitter across the globe, mapping tweets in real-time to explore how sentiment changes by time of day and location. Originally built last Christmas out of curiosity about what people around the world were wishing for, it has since expanded to identify and handle a wider range of emotions.
+
 Tech Stack: Typescript. ThreeJS. React. NextJS. Cloudflare Workers.
 
 ### SpellWhiz
 
 A word-based collaborative real-time multiplayer card game. This was an attempt to recreate a nostalgic game I enjoyed in my childhood, now adapted as a multiplayer digital version to play with my own kids (temporarily offline)
+
 Tech Stack: Typescript. React. Firebase. Tailwind. Vite.

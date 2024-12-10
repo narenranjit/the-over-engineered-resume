@@ -1,6 +1,6 @@
 import { marked } from "marked";
 import type { Token, Tokens } from "marked";
-import type { Resume, Job, JobNew, Project, Title, Role, Tenure } from "./types";
+import type { Resume, Job, JobNew, Project, Title, Role, Tenure, PersonalProject } from "./types";
 
 //Items between a heading and the next heading at the same depth
 function getSectionItems(list: Token[], heading: string) {
@@ -51,14 +51,17 @@ function processNestedTokens<T>(tokens: Token[], processItem: (tokens: Token[], 
   return items;
 }
 
-function extractTitleAndTenure(header: string): [string, Tenure] {
-  const [title, date] = header.split("[");
+function tenureFromDate(date: string): Tenure {
   const dateStr = date.replace("]", "").replace("[", "").trim().split("-");
   const tenure: Tenure = {
     start: +dateStr[0],
     end: dateStr[1] && dateStr[1].trim() !== "current" ? +dateStr[1] : undefined,
   };
-  return [title.trim(), tenure];
+  return tenure;
+}
+function extractTitleAndTenure(header: string): [string, Tenure] {
+  const [title, date] = header.split("[");
+  return [title.trim(), tenureFromDate(date)];
 }
 function markdownToJSON2(markdown: string) {
   const tokens = marked.lexer(markdown);
@@ -116,6 +119,39 @@ function markdownToJSON2(markdown: string) {
     return { companyName: companyName, titles: roles };
   });
   console.log("jobs", experienceJSON);
+
+  const educationTokens = getSectionItems(tokens, "education")![0] as Tokens.List;
+  const education = educationTokens.items.map((item) => {
+    const [degree, institution, date] = item.text.split(" | ");
+    return { degree: degree.trim(), institution: institution.trim(), date: tenureFromDate(date) };
+  });
+  console.log("education", education);
+
+  const ppTokens = getSectionItems(tokens, "Personal Projects");
+  const ppJSON = processNestedTokens<PersonalProject>(ppTokens, (projectDetailTokens, projectHeadingToken) => {
+    const techStackText = projectDetailTokens.find(
+      (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("tech stack") === 0,
+    ) as Tokens.Paragraph;
+    const techStack =
+      techStackText &&
+      techStackText.text
+        .replace("Tech Stack:", "")
+        .split(".")
+        .map((t) => t.trim())
+        .filter((t) => t);
+
+    const linkText = projectDetailTokens.find(
+      (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("link:") === 0,
+    ) as Tokens.Paragraph;
+    const link = linkText && linkText.text.replace("Link:", "").trim();
+    return {
+      name: projectHeadingToken.text,
+      description: "bar",
+      link,
+      techStack,
+    };
+  });
+  console.log(ppJSON);
   // resume.experience
 
   // export interface Job {

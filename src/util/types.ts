@@ -30,6 +30,13 @@ export interface JobNew {
   titles: Array<Title | Role>;
 }
 
+interface PersonalProject {
+  name: string;
+  description: string;
+  techStack?: string[];
+  link?: string;
+}
+
 export interface Education {
   degree: string;
   institution: string;
