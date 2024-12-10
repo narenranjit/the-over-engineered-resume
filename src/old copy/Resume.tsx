@@ -4,7 +4,7 @@ import { marked } from "marked";
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   function VerticalList({ list }: { list: string[] | undefined }) {
     if (!list) return null;
-    const parsed = list.map((item) => marked.parse(item));
+    const parsed = list.map((item) => marked.parseInline(item));
     return (
       <ul className="list-disc pl-4 text-sm space-y-1 marker:text-gray-400">
         {parsed.map((text, index) => (
@@ -19,7 +19,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
   }
   function InlineList({ list }: { list: string[] | undefined }) {
     if (!list) return null;
-    const parsed = list.map((item) => marked.parse(item));
+    const parsed = list.map((item) => marked.parseInline(item));
     return (
       <ul className="flex flex-wrap justify-start space-x-2 text-sm">
         {parsed.map((text, index) => (
@@ -33,7 +33,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
   }
   function Date({ from, to }: { from: number; to: number | undefined }) {
     return (
-      <span className="text-sm">
+      <span className="text-xs">
         {from} - {to || "current"}
       </span>
     );
@@ -65,7 +65,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     return <section className={levels[level - 1]}>{children}</section>;
   }
   function Text({ children, level = 1 }: { children: string; level?: number }) {
-    const parsed = marked.parse(children) as string;
+    const parsed = marked.parseInline(children) as string;
     return <p className="text-sm" dangerouslySetInnerHTML={{ __html: parsed }}></p>;
   }
   function Logo({ company }: { company: string }) {
@@ -73,7 +73,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     return <img src={`assets/${fileName}.png`} alt={company} className="h-3 inline-block mr-1" />;
   }
   return (
-    <div className="max-w-4xl mx-auto font-sans text-gray-800">
+    <div className="max-w-4xl mx-auto font-sans text-gray-800 leading-loose">
       <header>
         <Heading type="h1">{resume.name}</Heading>
         <div className="my-2">
