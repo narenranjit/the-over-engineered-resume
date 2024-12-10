@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import markdownToJSON from "./util/markdown-to-json";
 import "./ResumeApp.css";
 import type { Resume } from "./util/types";
-import ResumeComponent from "./Resume";
+import ResumeComponent from "./Resume2";
 
 const ResumePage: React.FC = () => {
   const [resumeData, setResumeData] = useState<Resume | null>(null);
