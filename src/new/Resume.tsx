@@ -1,4 +1,4 @@
-import type { Resume } from "../util/types";
+import type { Resume } from "./util/types";
 export default function Resume({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-4xl mx-auto font-sans text-gray-800">

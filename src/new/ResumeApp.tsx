@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import markdownToJSON from "../util/markdown-to-json";
+import markdownToJSON from "./util/markdown-to-json";
 import "./ResumeApp.css";
-import type { Resume, Job, Project } from "../util/types";
+import type { Resume, Job, Project } from "./util/types";
 import ResumeComponent from "./Resume";
 
 const ResumePage: React.FC = () => {
