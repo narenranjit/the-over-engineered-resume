@@ -4,7 +4,7 @@ export interface Tenure {
 }
 
 export interface Role {
-  title: string;
+  name: string;
   tenure: Tenure;
   description?: string;
   achievements?: string[];
@@ -12,6 +12,7 @@ export interface Role {
 
 export interface Title {
   name: string;
+  tenure: Tenure;
   role: Role[];
 }
 

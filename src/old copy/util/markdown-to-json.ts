@@ -93,28 +93,29 @@ export default function markdownToResume(markdown: string): Resume {
   const experienceJSON = processNestedTokens<Job>(experienceTokens, (companyDetailTokens, companyHeadingToken) => {
     const companyName = companyHeadingToken.text;
     const roles = processNestedTokens<Title | Role>(companyDetailTokens, (roleDetailTokens, roleHeadingToken) => {
-      const [title, tenure] = extractTitleAndTenure(roleHeadingToken.text);
+      const [name, tenure] = extractTitleAndTenure(roleHeadingToken.text);
       const role: Role = {
-        title,
+        name,
         tenure,
       };
       if (!roleDetailTokens.length) {
         return role;
-      } else if (roleDetailTokens[0].type === "heading") {
+      } else if (roleDetailTokens[0].type !== "heading") {
         role.description = retreiveParagraphText(roleDetailTokens);
         role.achievements = retreiveListItemText(roleDetailTokens);
         return role;
       } else {
         const titles = processNestedTokens<Role>(roleDetailTokens, (titleDetailTokens, titleHeadingToken) => {
-          const [title, tenure] = extractTitleAndTenure(titleHeadingToken.text);
+          const [name, tenure] = extractTitleAndTenure(titleHeadingToken.text);
           return {
-            title: title,
-            tenure: tenure,
+            name,
+            tenure,
             description: retreiveParagraphText(titleDetailTokens),
             achievements: retreiveListItemText(titleDetailTokens),
           };
         });
-        return { name: roleHeadingToken.text.trim(), role: titles };
+        const [name, tenure] = extractTitleAndTenure(roleHeadingToken.text);
+        return { name, tenure, role: titles };
       }
     });
     return { companyName: companyName, titles: roles };
