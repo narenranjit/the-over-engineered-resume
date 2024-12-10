@@ -56,22 +56,29 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     }
   }
 
+  function Section({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
+    const levels = ["mb-8", "mb-6", "mb-4", "mb-2"];
+    return <section className={levels[level - 1]}>{children}</section>;
+  }
+  function Text({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
+    return <p className="text-sm">{children}</p>;
+  }
   return (
     <div className="max-w-4xl mx-auto font-sans text-gray-800">
       <header>
         <Heading type="h1">{resume.name}</Heading>
         <InlineList list={resume.contact} />
       </header>
-      <section>
-        <p className="text-sm">{resume.summary}</p>
-      </section>
-      <section>
+      <Section>
+        <Text>{resume.summary}</Text>
+      </Section>
+      <Section>
         <Heading type="h2">Experience</Heading>
         {resume.experience.map((job, jobIndex) => (
-          <div key={jobIndex}>
+          <Section level={2} key={jobIndex}>
             <Heading type="h3">{job.companyName}</Heading>
             {job.titles.map((title, titleIndex) => (
-              <div key={titleIndex}>
+              <Section level={3} key={titleIndex}>
                 <div className="flex justify-between">
                   <Heading type="h4">{title.name}</Heading>
                   <Date from={title.tenure.start} to={title.tenure.end} />
@@ -79,56 +86,55 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                 {"role" in title && (
                   <>
                     {title.role.map((role, roleIndex) => (
-                      <div key={roleIndex}>
+                      <Section level={4} key={roleIndex}>
                         <div className="flex justify-between">
                           <Heading type="h5">{role.name}</Heading>
                           <span className="text-xs text-gray-600">{role.tenure.start}</span>
                         </div>
-                        <p className="text-sm">{role.description}</p>
+                        <Text>{role.description}</Text>
                         <VerticalList list={role.achievements} />
-                      </div>
+                      </Section>
                     ))}
                   </>
                 )}
                 {!("role" in title) && (
                   <>
-                    {title.description && <p className="text-sm">{title.description}</p>}
+                    {title.description && <Text>{title.description}</Text>}
                     <VerticalList list={title.achievements} />
                   </>
                 )}
-              </div>
+              </Section>
             ))}
-          </div>
+          </Section>
         ))}
-      </section>
-      <section>
+      </Section>
+      <Section>
         <Heading type="h2">Education</Heading>
         {resume.education.map((edu, index) => (
-          <div key={index}>
+          <Section level={4} key={index}>
             <div className="flex justify-between">
               <Heading type="h4">{edu.degree}</Heading>
               <Date from={edu.date.start} to={edu.date.end} />
             </div>
-            <p className="text-sm">{edu.institution}</p>
-          </div>
+            <Text>{edu.institution}</Text>
+          </Section>
         ))}
-      </section>
-
-      <section>
+      </Section>
+      <Section>
         <Heading type="h2">Personal Projects</Heading>
         {resume.projects.map((project, index) => (
-          <div key={index}>
+          <Section level={3} key={index}>
             <Heading type="h4">{project.name}</Heading>
-            <p className="text-sm">{project.description}</p>
+            <Text>{project.description}</Text>
             {project.techStack && (
               <div className="flex items-center space-x-2">
                 <Heading type="h6">Tech Stack:</Heading>
                 <InlineList list={project.techStack} />
               </div>
             )}
-          </div>
+          </Section>
         ))}
-      </section>
+      </Section>
     </div>
   );
 }
