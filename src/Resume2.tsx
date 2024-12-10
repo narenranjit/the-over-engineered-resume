@@ -28,6 +28,16 @@ function Text({ children, level = 1 }: { children: string; level?: number }) {
   const parsed = marked.parseInline(children) as string;
   return <p className="text-sm" dangerouslySetInnerHTML={{ __html: parsed }}></p>;
 }
+function Logo({ company }: { company: string }) {
+  const fileName = company.toLowerCase().replace(" ", "-");
+  return (
+    <img
+      src={`assets/${fileName}.png`}
+      alt={company}
+      className="h-3 inline-block mr-1 align-baseline	"
+    />
+  );
+}
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white">
@@ -47,7 +57,11 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         <div>
           {resume.experience.map((job, jobIndex) => (
             <div className="mb-6">
-              <span>{job.companyName}</span>
+              <span>
+                {" "}
+                <Logo company={job.companyName} />
+                {job.companyName}
+              </span>
               {job.titles.map((title, titleIndex) => (
                 <div className="mb-4 last:mb-0">
                   <div className="flex justify-between items-baseline mb-1">
