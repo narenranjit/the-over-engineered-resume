@@ -44,13 +44,13 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     if (type === "h1") {
       return <h1 className="text-4xl font-bold text-blue-600">{children}</h1>;
     } else if (type === "h2") {
-      return <h2 className="text-2xl font-bold">{children}</h2>;
+      return <h2 className="text-xl font-bold">{children}</h2>;
     } else if (type === "h3") {
-      return <h3 className="font-semibold text-lg">{children}</h3>;
+      return <h3 className="font-bold text-lg">{children}</h3>;
     } else if (type === "h4") {
-      return <h4 className="font-semibold text-md">{children}</h4>;
+      return <h4 className="font-semibold text-base">{children}</h4>;
     } else if (type === "h5") {
-      return <h5 className="font-semibold text-base">{children}</h5>;
+      return <h5 className="font-semibold text-sm">{children}</h5>;
     } else if (type === "h6") {
       return <h6 className="font-semibold text-sm">{children}</h6>;
     }
