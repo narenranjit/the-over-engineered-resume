@@ -40,7 +40,7 @@ function Logo({ company }: { company: string }) {
 }
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white">
+    <div className="max-w-3xl p-6 print:p-0 mx-auto bg-white">
       <header className="mb-4">
         <div className="flex justify-between items-start gap-6">
           <div className="rounded-lg text-right">
@@ -51,12 +51,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
               </a>
             </p>
             <p className="text-muted-foreground text-sm mb-2">
-              <a
-                href="https://linkedin.com/in/narenranjit"
-                className="text-blue-600 hover:underline"
-              >
-                linkedin.com/in/narenranjit
-              </a>
+              <a href="https://linkedin.com/in/narenranjit">linkedin.com/in/narenranjit</a>
             </p>
             <p className="text-muted-foreground text-sm mb-2">(415) 935-1432</p>
           </div>
@@ -66,10 +61,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         </div>
       </header>
       <section>
-        <h2 className="text-xl font-bold text-orange-500 mb-3">Experience</h2>
+        <h2 className="text-xl font-bold text-blue-500 mb-3">Experience</h2>
         <div>
           {resume.experience.map((job, jobIndex) => (
-            <div className="mb-6">
+            <div className="mb-8">
               <span>
                 {" "}
                 <Logo company={job.companyName} />

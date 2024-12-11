@@ -16,7 +16,7 @@ I thrive at the intersection of product and engineering, leading teams in crafti
 
 Lead cross-functional ML and engineering org during a challenging phase as LLMs disrupted the EdTech landscape. Focused on launching innovative products to secure product-market fit.
 
-- Transitioned **ML strategy** from in-house to foundational models, improving scalability and accelerating time-to-market.
+- **Transitioned ML strategy** from in-house to foundational models, improving scalability and accelerating time-to-market.
 - Fostered a **customer-centric culture** connecting engineers with users, with 70% of ICs engaging in at least 1 monthly customer interaction.
 - Promoted a learning-driven development cycle, increasing **AB-tests by 50%** to drive rapid hypothesis validation and product iteration.
 
@@ -32,14 +32,14 @@ Shepherded a growing organization through the Covid-era EdTech boom, scaling to 
 Owned engineering for the Question-and-Answer platform, generating ~$40M annually.
 
 - Piloted **first offshore team**, creating onboarding and collaboration frameworks now integral to operational strategies.
-- Proactively formed volunteer team to improve Developer Experience, achieving **40% faster test runs** and 35% CI speed improvement, resulting in a **80% engagement lift**. Secured funding for a full-time team based on this success.
+- Proactively formed volunteer team to improve Developer Experience, achieving **40% faster tests** and **35% faster builds**, resulting in a **80% engagement lift**. Secured funding for a full-time team based on this success.
 
 #### Senior Engineering Manager [2019 - 2021]
 
-Led engineering for ‘Textbook Solutions,’ a multi-million-dollar product launch, resolving content licensing and product-market uncertainties to achieve an on-time, on-budget launch hitting key product goals.
+Led engineering for ‘Textbook Solutions,’ a multi-million-dollar 0-1 product launch, resolving product risks and stakeholder conflicts to deliver on-time, on-budget, and hitting product goals.
 
-- Championed a **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These apps contributed to **30% of platform traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
-- Achieved an **80% promotion rate** among 12 direct reports through mentorship and coaching for impact.
+- Championed **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These apps contributed to **30% of platform traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
+- Achieved **80% promotion rate** among 12 direct reports through mentorship and coaching.
 
 ### Frontpage.to
 
