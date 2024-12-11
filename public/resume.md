@@ -4,7 +4,9 @@
 
 ## Summary
 
-I thrive at the intersection of product and engineering, leading teams in crafting products so seamless they feel invisible. I’ve helped launch multiple 0-1 products, bridging vision and execution by shipping fast and iterating often. I’ve scaled organizations through explosive growth and guided them during downturns, with a constant focus on resilience and adaptability. I foster engineering cultures that thrive on curiosity, speed, and purpose, where teams take initiative, act with clarity, and embrace risks, knowing that learning fuels growth.
+I thrive at the intersection of product and engineering, leading teams in crafting products so seamless they feel invisible.
+
+I’ve helped launch multiple 0-1 products, bridging vision and execution by shipping fast and iterating often. I’ve scaled organizations through explosive growth and guided them during downturns, with a constant focus on resilience and adaptability. I foster engineering cultures where teams take initiative, act with clarity, and embrace risks, knowing that learning fuels growth.
 
 ## Experience
 
@@ -16,36 +18,36 @@ I thrive at the intersection of product and engineering, leading teams in crafti
 
 Lead cross-functional ML and engineering org during a challenging phase as LLMs disrupted the EdTech landscape. Focused on launching innovative products to secure product-market fit.
 
-- Transitioned **ML strategy** from in-house to foundational models, improving scalability and accelerating time-to-market.
-- Fostered a **customer-centric culture** connecting engineers with users, with 70% of ICs engaging in at least 1 monthly customer interaction.
-- Promoted a learning-driven development cycle, increasing **AB-tests by 50%** to drive rapid hypothesis validation and product iteration.
+- **Transitioned ML strategy** from in-house to foundational models, accelerating time-to-market.
+- Fostered a **customer-centric culture**, with 70% of ICs engaging in at least 1 monthly customer interaction.
+- Promoted iterative hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
 
 ##### Platform Experiences [2022 - 2023]
 
 Shepherded a growing organization through the Covid-era EdTech boom, scaling to meet surging demand while focusing on engineering efficiency and user engagement.
 
 - Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled **headcount by 30%**, while also boosting **engagement scores by 7%**.
-- Instituted DORA metrics to boost engineering efficiency, reducing **lead-time by 20%** and improving deployment pipeline throughput by 15%.
+- Instituted engineering efficiency metrics, reducing **lead-time by 20%** and increasing **deployments by 15%**.
 
 #### Director of Engineering [2021 - 2022]
 
-Owned engineering for the Question-and-Answer platform, one of our primary lines of business, generating ~$40M annually.
+Owned engineering for the Question-and-Answer platform, generating ~$40M annually.
 
-- Piloted our **first offshore team**, creating onboarding and collaboration frameworks now integral to our operational strategies.
-- Proactively formed a volunteer-led team to improve Developer Experience, achieving **40% faster test runs** and 35% CI speed improvement, resulting in a **80% engagement lift**. Secured funding for a full-time team based on this success.
+- Piloted **first offshore team**, creating collaboration frameworks now integral to operational strategies.
+- Proactively formed volunteer team to improve Developer Experience, achieving **40% faster tests** and **35% faster builds**, resulting in **80% engagement lift**. Secured funding for a full-time team based on this success.
 
 #### Senior Engineering Manager [2019 - 2021]
 
-Led engineering for ‘Textbook Solutions,’ a multi-million-dollar product launch, resolving content licensing and product-market uncertainties to achieve an on-time, on-budget launch hitting key product goals.
+Led engineering for ‘Textbook Solutions,’ a multi-million-dollar 0-1 product launch, resolving product risks and stakeholder conflicts to deliver on-time, on-budget, and hitting product goals.
 
-- Championed a **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These apps contributed to **30% of platform traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
-- Achieved an **80% promotion rate** among 12 direct reports through mentorship and coaching for impact.
+- Championed **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These apps contributed to **30% of platform traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
+- Achieved **80% promotion rate** among 12 direct reports through mentorship and coaching.
 
 ### Frontpage.to
 
 #### Founder [2017 - 2019]
 
-Frontpage.to was a customizable content aggregation tool for creating personalized dashboards integrating email, social media, and blogs. Initially built for personal use, founded the company after validating market demand.
+Frontpage.to was a customizable content aggregation platform for creating personalized dashboards, integrating email, social media, and RSS. Created for personal use, scaled after validating market demand.
 
 - Scaled to **10K Daily Active Users** through organic marketing and community-building.
 - Engaged directly with users to gather feedback, iterating on features to achieve a **50% Day-30 retention rate**.
