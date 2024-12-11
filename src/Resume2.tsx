@@ -24,9 +24,45 @@ function VerticalList({ list }: { list: string[] | undefined }) {
     </ul>
   );
 }
+function Heading({
+  children,
+  type,
+}: {
+  children: React.ReactNode;
+  type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+}) {
+  if (type === "h1") {
+    return <h1 className="font-bold text-4xl text-blue-600">{children}</h1>;
+  } else if (type === "h2") {
+    return <h2 className="font-bold text-xl mb-3">{children}</h2>;
+  } else if (type === "h3") {
+    return <h3 className="font-semibold text-lg">{children}</h3>;
+  } else if (type === "h4") {
+    return <h4 className="font-bold text-base">{children}</h4>;
+  } else if (type === "h5") {
+    return <h5 className="font-semibold text-sm">{children}</h5>;
+  } else if (type === "h6") {
+    return <h6 className=" text-sm font-semibold">{children}</h6>;
+  }
+}
+
 function Text({ children, level = 1 }: { children: string; level?: number }) {
   const parsed = marked.parseInline(children) as string;
   return <p className="text-sm" dangerouslySetInnerHTML={{ __html: parsed }}></p>;
+}
+function InlineList({ list }: { list: string[] | undefined }) {
+  if (!list) return null;
+  const parsed = list.map((item) => marked.parseInline(item));
+  return (
+    <ul className="flex flex-wrap justify-start space-x-2 text-sm">
+      {parsed.map((text, index) => (
+        <li key={index} className="flex items-center">
+          {index > 0 && <span className="mr-2 text-gray-400">•</span>}
+          <span dangerouslySetInnerHTML={{ __html: text }}></span>
+        </li>
+      ))}
+    </ul>
+  );
 }
 function Logo({ company }: { company: string }) {
   const fileName = company.toLowerCase().replace(" ", "-");
@@ -40,8 +76,8 @@ function Logo({ company }: { company: string }) {
 }
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-3xl p-6 print:p-0 mx-auto bg-white">
-      <header className="mb-4">
+    <div className="max-w-3xl p-6 print:p-0 mx-auto bg-white leading-snug">
+      {/* <header className="mb-4">
         <div className="flex justify-between items-start gap-6">
           <div className="rounded-lg text-right">
             <h1 className="text-4xl font-bold text-foreground mb-4">Naren Ranjit</h1>
@@ -59,6 +95,15 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
             <p className="text-sm">{resume.summary}</p>
           </div>
         </div>
+      </header> */}
+      <header>
+        <Heading type="h1">{resume.name}</Heading>
+        <div className="my-2">
+          <InlineList list={resume.contact} />
+        </div>
+        <div className="border-l-2 border-gray-300 px-4 py-2 mt-2 mb-4 italic text-muted-foreground">
+          <Text>{resume.summary}</Text>
+        </div>
       </header>
       <section>
         <h2 className="text-xl font-bold text-blue-500 mb-3">Experience</h2>
@@ -71,7 +116,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                 {job.companyName}
               </span>
               {job.titles.map((title, titleIndex) => (
-                <div className="mb-4 last:mb-0">
+                <div className="mb-6 last:mb-0">
                   <div className="flex justify-between items-baseline mb-1">
                     <span className="font-bold">{title.name}</span>
                     <Date from={title.tenure.start} to={title.tenure.end} />
