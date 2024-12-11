@@ -29,10 +29,10 @@ Shepherded a growing organization through the Covid-era EdTech boom, scaling to 
 
 #### Director of Engineering [2021 - 2022]
 
-Owned engineering for the Question-and-Answer platform, one of our primary lines of business, generating ~$40M annually.
+Owned engineering for the Question-and-Answer platform, generating ~$40M annually.
 
-- Piloted our **first offshore team**, creating onboarding and collaboration frameworks now integral to our operational strategies.
-- Proactively formed a volunteer-led team to improve Developer Experience, achieving **40% faster test runs** and 35% CI speed improvement, resulting in a **80% engagement lift**. Secured funding for a full-time team based on this success.
+- Piloted **first offshore team**, creating onboarding and collaboration frameworks now integral to operational strategies.
+- Proactively formed volunteer team to improve Developer Experience, achieving **40% faster test runs** and 35% CI speed improvement, resulting in a **80% engagement lift**. Secured funding for a full-time team based on this success.
 
 #### Senior Engineering Manager [2019 - 2021]
 
