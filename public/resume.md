@@ -4,7 +4,9 @@
 
 ## Summary
 
-I thrive at the intersection of product and engineering, leading teams in crafting products so seamless they feel invisible. I’ve helped launch multiple 0-1 products, bridging vision and execution by shipping fast and iterating often. I’ve scaled organizations through explosive growth and guided them during downturns, with a constant focus on resilience and adaptability. I foster engineering cultures that thrive on curiosity, speed, and purpose, where teams take initiative, act with clarity, and embrace risks, knowing that learning fuels growth.
+I thrive at the intersection of product and engineering, leading teams in crafting products so seamless they feel invisible.
+
+I’ve helped launch multiple 0-1 products, bridging vision and execution by shipping fast and iterating often. I’ve scaled organizations through explosive growth and guided them during downturns, with a constant focus on resilience and adaptability. I foster engineering cultures where teams take initiative, act with clarity, and embrace risks, knowing that learning fuels growth.
 
 ## Experience
 
@@ -17,8 +19,8 @@ I thrive at the intersection of product and engineering, leading teams in crafti
 Lead cross-functional ML and engineering org during a challenging phase as LLMs disrupted the EdTech landscape. Focused on launching innovative products to secure product-market fit.
 
 - **Transitioned ML strategy** from in-house to foundational models, accelerating time-to-market.
-- Fostered **customer-centric culture**, with 70% of ICs engaging in at least 1 monthly customer interaction.
-- Promoted hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
+- Fostered a **customer-centric culture**, with 70% of ICs engaging in at least 1 monthly customer interaction.
+- Promoted iterative hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
 
 ##### Platform Experiences [2022 - 2023]
 

@@ -27,11 +27,14 @@ function retreiveListItemText(listDetailTokens: Token[]): string[] {
 function retreiveParagraphText(tokens: Token[]): string {
   if (!tokens || !tokens.length) return "";
   const list = tokens.filter((token) => token.type === "paragraph") as Tokens.Paragraph[];
-  const text = list.map((item) => item.text).join("\n");
+  const text = list.map((item) => item.text).join("\n\n");
   return text;
 }
 
-function processNestedTokens<T>(tokens: Token[], processItem: (tokens: Token[], heading: Tokens.Heading) => T): T[] {
+function processNestedTokens<T>(
+  tokens: Token[],
+  processItem: (tokens: Token[], heading: Tokens.Heading) => T,
+): T[] {
   let remainingTokens = tokens.slice();
   const items: T[] = [];
   const depth = (tokens[0] as Tokens.Heading).depth;
@@ -75,7 +78,9 @@ export default function markdownToResume(markdown: string): Resume {
     projects: [],
   };
 
-  const nameToken = tokens.find((token) => token.type === "heading" && token.depth === 1)! as Tokens.Heading;
+  const nameToken = tokens.find(
+    (token) => token.type === "heading" && token.depth === 1,
+  )! as Tokens.Heading;
   resume.name = nameToken.text;
 
   const contact = tokens.find(
@@ -83,43 +88,50 @@ export default function markdownToResume(markdown: string): Resume {
   )! as Tokens.Paragraph;
   resume.contact = contact.text.split(" • ");
 
-  const summaryHeaderIndex = tokens.findIndex(
-    (token) => token.type === "heading" && token.text.toLowerCase() === "summary",
-  )!;
-  const summaryText = tokens[summaryHeaderIndex + 1] as Tokens.Paragraph;
-  resume.summary = summaryText.text;
-
+  const summaryTokens = getSectionItems(tokens, "summary");
+  const summaryText = retreiveParagraphText(summaryTokens);
+  resume.summary = summaryText;
+  console.log("summary", summaryText);
   const experienceTokens = getSectionItems(tokens, "experience");
-  const experienceJSON = processNestedTokens<Job>(experienceTokens, (companyDetailTokens, companyHeadingToken) => {
-    const companyName = companyHeadingToken.text;
-    const roles = processNestedTokens<Title | Role>(companyDetailTokens, (roleDetailTokens, roleHeadingToken) => {
-      const [name, tenure] = extractTitleAndTenure(roleHeadingToken.text);
-      const role: Role = {
-        name,
-        tenure,
-      };
-      if (!roleDetailTokens.length) {
-        return role;
-      } else if (roleDetailTokens[0].type !== "heading") {
-        role.description = retreiveParagraphText(roleDetailTokens);
-        role.achievements = retreiveListItemText(roleDetailTokens);
-        return role;
-      } else {
-        const titles = processNestedTokens<Role>(roleDetailTokens, (titleDetailTokens, titleHeadingToken) => {
-          const [name, tenure] = extractTitleAndTenure(titleHeadingToken.text);
-          return {
+  const experienceJSON = processNestedTokens<Job>(
+    experienceTokens,
+    (companyDetailTokens, companyHeadingToken) => {
+      const companyName = companyHeadingToken.text;
+      const roles = processNestedTokens<Title | Role>(
+        companyDetailTokens,
+        (roleDetailTokens, roleHeadingToken) => {
+          const [name, tenure] = extractTitleAndTenure(roleHeadingToken.text);
+          const role: Role = {
             name,
             tenure,
-            description: retreiveParagraphText(titleDetailTokens),
-            achievements: retreiveListItemText(titleDetailTokens),
           };
-        });
-        const [name, tenure] = extractTitleAndTenure(roleHeadingToken.text);
-        return { name, tenure, role: titles };
-      }
-    });
-    return { companyName: companyName, titles: roles };
-  });
+          if (!roleDetailTokens.length) {
+            return role;
+          } else if (roleDetailTokens[0].type !== "heading") {
+            role.description = retreiveParagraphText(roleDetailTokens);
+            role.achievements = retreiveListItemText(roleDetailTokens);
+            return role;
+          } else {
+            const titles = processNestedTokens<Role>(
+              roleDetailTokens,
+              (titleDetailTokens, titleHeadingToken) => {
+                const [name, tenure] = extractTitleAndTenure(titleHeadingToken.text);
+                return {
+                  name,
+                  tenure,
+                  description: retreiveParagraphText(titleDetailTokens),
+                  achievements: retreiveListItemText(titleDetailTokens),
+                };
+              },
+            );
+            const [name, tenure] = extractTitleAndTenure(roleHeadingToken.text);
+            return { name, tenure, role: titles };
+          }
+        },
+      );
+      return { companyName: companyName, titles: roles };
+    },
+  );
   resume.experience = experienceJSON;
   console.log("jobs", experienceJSON);
 
@@ -132,31 +144,35 @@ export default function markdownToResume(markdown: string): Resume {
   // console.log("education", education);
 
   const ppTokens = getSectionItems(tokens, "Personal Projects");
-  const ppJSON = processNestedTokens<PersonalProject>(ppTokens, (projectDetailTokens, projectHeadingToken) => {
-    const techStackText = projectDetailTokens.find(
-      (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("tech stack") === 0,
-    ) as Tokens.Paragraph;
-    const techStack =
-      techStackText &&
-      techStackText.text
-        .replace("Tech Stack:", "")
-        .split(".")
-        .map((t) => t.trim())
-        .filter((t) => t);
+  const ppJSON = processNestedTokens<PersonalProject>(
+    ppTokens,
+    (projectDetailTokens, projectHeadingToken) => {
+      const techStackText = projectDetailTokens.find(
+        (token) =>
+          token.type === "paragraph" && token.text.toLowerCase().indexOf("tech stack") === 0,
+      ) as Tokens.Paragraph;
+      const techStack =
+        techStackText &&
+        techStackText.text
+          .replace("Tech Stack:", "")
+          .split(".")
+          .map((t) => t.trim())
+          .filter((t) => t);
 
-    const linkText = projectDetailTokens.find(
-      (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("link:") === 0,
-    ) as Tokens.Paragraph;
-    const link = linkText && linkText.text.replace("Link:", "").trim();
+      const linkText = projectDetailTokens.find(
+        (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("link:") === 0,
+      ) as Tokens.Paragraph;
+      const link = linkText && linkText.text.replace("Link:", "").trim();
 
-    const description = (projectDetailTokens[0]! as Tokens.Paragraph).text;
-    return {
-      name: projectHeadingToken.text,
-      description,
-      link,
-      techStack,
-    };
-  });
+      const description = (projectDetailTokens[0]! as Tokens.Paragraph).text;
+      return {
+        name: projectHeadingToken.text,
+        description,
+        link,
+        techStack,
+      };
+    },
+  );
   resume.projects = ppJSON;
   // console.log(ppJSON);
 

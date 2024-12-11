@@ -46,9 +46,9 @@ function Heading({
   }
 }
 
-function Text({ children, level = 1 }: { children: string; level?: number }) {
-  const parsed = marked.parseInline(children) as string;
-  return <p className="text-sm" dangerouslySetInnerHTML={{ __html: parsed }}></p>;
+function Text({ children, multiline = false }: { children: string; multiline?: boolean }) {
+  const parsed = (multiline ? marked.parse(children) : marked.parseInline(children)) as string;
+  return <div className="text-sm [&>p]:mb-2" dangerouslySetInnerHTML={{ __html: parsed }}></div>;
 }
 function InlineList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
@@ -76,7 +76,7 @@ function Logo({ company }: { company: string }) {
 }
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-3xl p-6 print:p-0 mx-auto bg-white leading-snug">
+    <div className="max-w-4xl p-6 print:p-0 mx-auto bg-white leading-snug">
       {/* <header className="mb-4">
         <div className="flex justify-between items-start gap-6">
           <div className="rounded-lg text-right">
@@ -101,8 +101,8 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         <div className="my-2">
           <InlineList list={resume.contact} />
         </div>
-        <div className="border-l-2 border-gray-300 px-4 py-2 mt-2 mb-4 italic text-muted-foreground">
-          <Text>{resume.summary}</Text>
+        <div className="border-l-2 border-gray-300 px-4  mt-4 mb-4 italic text-muted-foreground">
+          <Text multiline>{resume.summary}</Text>
         </div>
       </header>
       <section>
