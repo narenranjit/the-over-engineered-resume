@@ -41,19 +41,32 @@ function Logo({ company }: { company: string }) {
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white">
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-primary mb-4">{resume.name}</h1>
-        <p className="text-muted-foreground text-sm mb-2">
-          (415) 935-1432 • narendran.ranjit@gmail.com •{" "}
-          <a href="https://linkedin.com/in/narenranjit" className="text-blue-600 hover:underline">
-            linkedin.com/in/narenranjit
-          </a>
-        </p>
-        <p className="text-sm">{resume.summary}</p>
+      <header className="mb-4">
+        <div className="flex justify-between items-start gap-6">
+          <div className="rounded-lg text-right">
+            <h1 className="text-4xl font-bold text-foreground mb-4">Naren Ranjit</h1>
+            <p className="text-muted-foreground text-sm mb-2">
+              <a href="mailto:narendran.ranjit@gmail.com" className="hover:underline">
+                narendran.ranjit@gmail.com
+              </a>
+            </p>
+            <p className="text-muted-foreground text-sm mb-2">
+              <a
+                href="https://linkedin.com/in/narenranjit"
+                className="text-blue-600 hover:underline"
+              >
+                linkedin.com/in/narenranjit
+              </a>
+            </p>
+            <p className="text-muted-foreground text-sm mb-2">(415) 935-1432</p>
+          </div>
+          <div className="flex-1 border-l-4 border-gray-300 pl-6 pr-3 py-2 bg-gray-50">
+            <p className="text-sm">{resume.summary}</p>
+          </div>
+        </div>
       </header>
-
       <section>
-        <h2 className="text-xl font-bold text-orange-500 mb-6">Experience</h2>
+        <h2 className="text-xl font-bold text-orange-500 mb-3">Experience</h2>
         <div>
           {resume.experience.map((job, jobIndex) => (
             <div className="mb-6">
