@@ -37,7 +37,10 @@ export interface Education {
 export interface Resume {
   name: string;
   contact: string[];
-  summary: string;
+  summary: {
+    description: string;
+    achievements: string[];
+  };
   experience: Job[];
   education: Education[];
   projects: PersonalProject[];

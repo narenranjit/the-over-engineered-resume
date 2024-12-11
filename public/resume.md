@@ -4,9 +4,13 @@
 
 ## Summary
 
-I thrive at the intersection of product and engineering, leading teams in crafting products so seamless they feel invisible.
+I thrive at the intersection of product and engineering, building products that captivate through engineering solutions that scale. I’ve lead multiple transformative product launches, bridging vision and execution by shipping fast and iterating often. Pursuit of excellence should always trump maintaining the status quo and is a trait that I highly value in companies I work for.
 
-I’ve helped launch multiple 0-1 products, bridging vision and execution by shipping fast and iterating often. I’ve scaled organizations through explosive growth and guided them during downturns, with a constant focus on resilience and adaptability. I foster engineering cultures where teams take initiative, act with clarity, and embrace risks, knowing that learning fuels growth.
+- Proven ability to **scale organizations** during explosive growth as well navigating them through downturns.
+- Deep **product and user focus**, with a hands-on approach and adaptability to wear multiple hats to get things done.
+- Demonstrated success aligning **engineering efficiency** and scalability with long-term business goals.
+- Fostered cultures defined by **collaboration, learning, and grit**, with a strong bias for action.
+- Genuine **passion for programming** and architecting usable interfaces.
 
 ## Experience
 

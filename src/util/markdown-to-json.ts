@@ -72,7 +72,7 @@ export default function markdownToResume(markdown: string): Resume {
   const resume: Resume = {
     name: "",
     contact: [],
-    summary: "",
+    summary: { description: "", achievements: [] },
     experience: [],
     education: [],
     projects: [],
@@ -90,8 +90,10 @@ export default function markdownToResume(markdown: string): Resume {
 
   const summaryTokens = getSectionItems(tokens, "summary");
   const summaryText = retreiveParagraphText(summaryTokens);
-  resume.summary = summaryText;
-  console.log("summary", summaryText);
+  resume.summary = {
+    description: summaryText,
+    achievements: retreiveListItemText(summaryTokens),
+  };
   const experienceTokens = getSectionItems(tokens, "experience");
   const experienceJSON = processNestedTokens<Job>(
     experienceTokens,
@@ -133,7 +135,7 @@ export default function markdownToResume(markdown: string): Resume {
     },
   );
   resume.experience = experienceJSON;
-  console.log("jobs", experienceJSON);
+  // console.log("jobs", experienceJSON);
 
   const educationTokens = getSectionItems(tokens, "education")![0] as Tokens.List;
   const education = educationTokens.items.map((item) => {
@@ -174,7 +176,7 @@ export default function markdownToResume(markdown: string): Resume {
     },
   );
   resume.projects = ppJSON;
-  // console.log(ppJSON);
+  console.log("resume", resume);
 
   return resume;
 }

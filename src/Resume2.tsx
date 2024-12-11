@@ -92,7 +92,8 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
             <p className="text-muted-foreground text-sm mb-2">(415) 935-1432</p>
           </div>
           <div className="flex-1 border-l-4 border-gray-300 pl-6 pr-3 py-2 bg-gray-50">
-            <p className="text-sm">{resume.summary}</p>
+            <Text multiline>{resume.summary.description}</Text>
+            <VerticalList list={resume.summary.achievements} />
           </div>
         </div>
       </header> */}
@@ -102,7 +103,8 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
           <InlineList list={resume.contact} />
         </div>
         <div className="border-l-2 border-gray-300 px-4  mt-4 mb-4 italic text-muted-foreground">
-          <Text multiline>{resume.summary}</Text>
+          <Text multiline>{resume.summary.description}</Text>
+          <VerticalList list={resume.summary.achievements} />
         </div>
       </header>
       <section>
