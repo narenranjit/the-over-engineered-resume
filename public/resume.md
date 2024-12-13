@@ -18,18 +18,11 @@ I'm an impact-oriented leader who thrives at the intersection of product and eng
 
 #### Senior Director of Engineering [2022 - current]
 
-##### AI/User Experience [2023 - current]
-
 Lead cross-functional ML and engineering org during a challenging phase as LLMs disrupted the EdTech landscape. Focused on launching innovative products to secure product-market fit.
 
 - **Transitioned ML strategy** from in-house to foundational models, accelerating time-to-market.
 - Fostered a **customer-centric culture**, with 70% of ICs engaging in at least 1 monthly customer interaction.
 - Promoted iterative hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
-
-##### Platform Experiences [2022 - 2023]
-
-Shepherded a growing organization through the Covid-era EdTech boom, scaling to meet surging demand while focusing on engineering efficiency and user engagement.
-
 - Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled **headcount by 30%**, while also boosting **engagement scores by 7%**.
 - Instituted engineering efficiency metrics, reducing **lead-time by 20%** and increasing **deployments by 15%**.
 

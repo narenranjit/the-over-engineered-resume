@@ -116,7 +116,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                 {job.companyName}
               </span>
               {job.titles.map((title, titleIndex) => (
-                <div className="mb-6 last:mb-0">
+                <div className="mb-4 last:mb-0">
                   <div className="flex justify-between items-baseline">
                     <span className="font-bold">{title.name}</span>
                     <Date from={title.tenure.start} to={title.tenure.end} />
@@ -127,7 +127,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                         <div className="last:mt-4" key={`role-${roleIndex}`}>
                           <div className="text-sm text-muted-foreground mb-2">{role.name}</div>
                           {role.description && (
-                            <div className="my-1">
+                            <div className="my-2">
                               <Text>{role.description}</Text>
                             </div>
                           )}
@@ -139,7 +139,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                   {!("role" in title) && (
                     <>
                       {title.description && (
-                        <div className="my-1">
+                        <div className="my-2">
                           <Text>{title.description}</Text>
                         </div>
                       )}
