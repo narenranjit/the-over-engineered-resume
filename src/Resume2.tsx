@@ -108,15 +108,15 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       <section>
         <h2 className="text-xl font-bold text-slate-500 mb-0 mt-4 text-right">Work Experience</h2>
         <div className="">
-          {resume.experience.map((job, jobIndex) => (
-            <div className="mb-8 print:mb-4">
+          {resume.experience.map((job) => (
+            <div className="mb-8 print:mb-4" key={job.companyName}>
               {/* rgb(138, 150, 170) */}
-              <div className="py-1 px-3 mb-2 bg-slate-400 text-white font-bold">
+              <div className="py-1 px-3 mb-2 bg-slate-400 text-white font-semibold">
                 <Logo company={job.companyName} />
                 {job.companyName}
               </div>
-              {job.titles.map((title, titleIndex) => (
-                <div className="mb-4 last:mb-0">
+              {job.titles.map((title) => (
+                <div className="mb-4 last:mb-0" key={title.name}>
                   <div className="flex justify-between items-baseline relative">
                     <span className="font-bold text-lg">{title.name}</span>
                     <Date from={title.tenure.start} to={title.tenure.end} />
