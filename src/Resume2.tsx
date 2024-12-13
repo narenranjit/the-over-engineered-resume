@@ -76,7 +76,7 @@ function Logo({ company }: { company: string }) {
 }
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-4xl p-6 print:p-0 mx-auto bg-white leading-snug">
+    <div className="max-w-4xl p-6 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
       {/* <header className="mb-4">
         <div className="flex justify-between items-start gap-6">
           <div className="rounded-lg text-right">
@@ -99,9 +99,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       </header> */}
       <header>
         <Heading type="h1">{resume.name}</Heading>
-        <div className="my-2">
-          <InlineList list={resume.contact} />
-        </div>
+
         <div className="border-l-2 border-gray-300 px-4  mt-4 mb-4 italic text-muted-foreground">
           <Text multiline>{resume.summary.description}</Text>
           <VerticalList list={resume.summary.achievements} />
@@ -119,7 +117,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
               </span>
               {job.titles.map((title, titleIndex) => (
                 <div className="mb-6 last:mb-0">
-                  <div className="flex justify-between items-baseline mb-1">
+                  <div className="flex justify-between items-baseline">
                     <span className="font-bold">{title.name}</span>
                     <Date from={title.tenure.start} to={title.tenure.end} />
                   </div>
@@ -129,7 +127,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                         <div className="last:mt-4" key={`role-${roleIndex}`}>
                           <div className="text-sm text-muted-foreground mb-2">{role.name}</div>
                           {role.description && (
-                            <div className="my-2">
+                            <div className="my-1">
                               <Text>{role.description}</Text>
                             </div>
                           )}
@@ -141,7 +139,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                   {!("role" in title) && (
                     <>
                       {title.description && (
-                        <div className="my-2">
+                        <div className="my-1">
                           <Text>{title.description}</Text>
                         </div>
                       )}
