@@ -24,6 +24,10 @@ function VerticalList({ list }: { list: string[] | undefined }) {
     </ul>
   );
 }
+function Section({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
+  const levels = ["mb-8", "mb-8", "mb-6", "mb-4"];
+  return <section className={levels[level - 1]}>{children}</section>;
+}
 function Heading({
   children,
   type,
@@ -32,15 +36,23 @@ function Heading({
   type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }) {
   if (type === "h1") {
-    return <h1 className="font-bold text-4xl text-blue-600">{children}</h1>;
+    return <h1 className="text-4xl font-bold text-foreground mb-4">{children}</h1>;
   } else if (type === "h2") {
-    return <h2 className="font-bold text-xl mb-3">{children}</h2>;
+    return (
+      <h2 className="text-xl font-bold text-slate-600 mb-4 mt-4 text-right border-b-2 border-slate-400">
+        {children}
+      </h2>
+    );
   } else if (type === "h3") {
-    return <h3 className="font-semibold text-lg">{children}</h3>;
+    return (
+      <h3 className="py-1 px-3 mb-2 bg-slate-400 text-white font-semibold first:-mt-4">
+        {children}
+      </h3>
+    );
   } else if (type === "h4") {
-    return <h4 className="font-bold text-base">{children}</h4>;
+    return <h4 className="font-bold text-lg">{children}</h4>;
   } else if (type === "h5") {
-    return <h5 className="font-semibold text-sm">{children}</h5>;
+    return <h5 className="text-sm text-muted-foreground mb-2">{children}</h5>;
   } else if (type === "h6") {
     return <h6 className=" text-sm font-semibold">{children}</h6>;
   }
@@ -54,7 +66,7 @@ function InlineList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
   const parsed = list.map((item) => marked.parseInline(item));
   return (
-    <ul className="flex flex-wrap justify-start space-x-2 text-sm">
+    <ul className="flex flex-wrap justify-start space-x-2 text-sm marker:text-muted-foreground">
       {parsed.map((text, index) => (
         <li key={index} className="flex items-center">
           {index > 0 && <span className="mr-2 text-gray-400">•</span>}
@@ -70,7 +82,7 @@ function Logo({ company }: { company: string }) {
     <img
       src={`assets/${fileName}.png`}
       alt={company}
-      className="h-3 inline-block mr-2 align-baseline contrast-50"
+      className="h-3 inline-block mr-2 align-baseline contrast-75"
     />
   );
 }
@@ -79,8 +91,8 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
     <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
       <header className="mb-2">
         <div className="flex justify-between items-start gap-6">
-          <div className="rounded-lg text-right">
-            <h1 className="text-4xl font-bold text-foreground mb-4">Naren Ranjit</h1>
+          <div className="text-right">
+            <Heading type="h1">Naren Ranjit</Heading>
             <p className="text-muted-foreground text-sm mb-2">
               <a href="mailto:narendran.ranjit@gmail.com" className="hover:underline">
                 narendran.ranjit@gmail.com
@@ -105,55 +117,80 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
           <VerticalList list={resume.summary.achievements} />
         </div>
       </header> */}
-      <section>
-        <h2 className="text-xl font-bold text-slate-500 mb-0 mt-4 text-right">Work Experience</h2>
-        <div className="">
-          {resume.experience.map((job) => (
-            <div className="mb-8 print:mb-4" key={job.companyName}>
-              {/* rgb(138, 150, 170) */}
-              <div className="py-1 px-3 mb-2 bg-slate-400 text-white font-semibold">
-                <Logo company={job.companyName} />
-                {job.companyName}
-              </div>
-              {job.titles.map((title) => (
-                <div className="mb-4 last:mb-0" key={title.name}>
-                  <div className="flex justify-between items-baseline relative">
-                    <span className="font-bold text-lg">{title.name}</span>
-                    <Date from={title.tenure.start} to={title.tenure.end} />
-                  </div>
-                  <div className="pr-1 text-muted-foreground">
-                    {"role" in title && (
-                      <>
-                        {title.role.map((role, roleIndex) => (
-                          <div className="last:mt-4" key={`role-${roleIndex}`}>
-                            <div className="text-sm text-muted-foreground mb-2">{role.name}</div>
-                            {role.description && (
-                              <div className="my-2">
-                                <Text>{role.description}</Text>
-                              </div>
-                            )}
-                            <VerticalList list={role.achievements} />
-                          </div>
-                        ))}
-                      </>
-                    )}
-                    {!("role" in title) && (
-                      <>
-                        {title.description && (
-                          <div className="my-2">
-                            <Text>{title.description}</Text>
-                          </div>
-                        )}
-                        <VerticalList list={title.achievements} />
-                      </>
-                    )}
-                  </div>
+      <Section>
+        <Heading type="h2">Work Experience</Heading>
+        {resume.experience.map((job) => (
+          <div className="mb-8 print:mb-4" key={job.companyName}>
+            {/* rgb(138, 150, 170) */}
+            <Heading type="h3">
+              <Logo company={job.companyName} />
+              {job.companyName}
+            </Heading>
+            {job.titles.map((title) => (
+              <div className="mb-4 last:mb-0" key={title.name}>
+                <div className="flex justify-between items-baseline relative">
+                  <Heading type="h4">{title.name}</Heading>
+                  <Date from={title.tenure.start} to={title.tenure.end} />
                 </div>
-              ))}
+                <div className="pr-1 text-muted-foreground">
+                  {"role" in title && (
+                    <>
+                      {title.role.map((role, roleIndex) => (
+                        <div className="last:mt-4" key={`role-${roleIndex}`}>
+                          <Heading type="h5">{role.name}</Heading>
+                          {role.description && (
+                            <div className="my-2">
+                              <Text>{role.description}</Text>
+                            </div>
+                          )}
+                          <VerticalList list={role.achievements} />
+                        </div>
+                      ))}
+                    </>
+                  )}
+                  {!("role" in title) && (
+                    <>
+                      {title.description && (
+                        <div className="my-2">
+                          <Text>{title.description}</Text>
+                        </div>
+                      )}
+                      <VerticalList list={title.achievements} />
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </Section>
+      <Section>
+        <Heading type="h2">Education</Heading>
+        {resume.education.map((edu, index) => (
+          <Section level={4} key={index}>
+            <div className="flex justify-between">
+              <Heading type="h4">{edu.degree}</Heading>
+              <Date from={edu.date.start} to={edu.date.end} />
             </div>
-          ))}
-        </div>
-      </section>
+            <Text>{edu.institution}</Text>
+          </Section>
+        ))}
+      </Section>
+      <Section>
+        <Heading type="h2">Personal Projects</Heading>
+        {resume.projects.map((project, index) => (
+          <Section level={3} key={index}>
+            <Heading type="h4">{project.name}</Heading>
+            <Text>{project.description}</Text>
+            {project.techStack && (
+              <div className="flex items-center space-x-2">
+                <Heading type="h6">Tech Stack:</Heading>
+                <InlineList list={project.techStack} />
+              </div>
+            )}
+          </Section>
+        ))}
+      </Section>
     </div>
   );
 }
