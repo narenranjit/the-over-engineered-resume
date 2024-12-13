@@ -3,7 +3,7 @@ import { marked } from "marked";
 
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
-    <span className="text-muted-foreground text-sm">
+    <span className=" text-sm">
       {from} - {to || "Present"}
     </span>
   );
@@ -13,7 +13,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
   const parsed = list.map((item) => marked.parseInline(item));
   return (
-    <ul className="list-disc pl-4 mt-2 space-y-1 text-sm">
+    <ul className="list-disc pl-4 mt-2 space-y-1 text-sm marker:text-muted-foreground">
       {parsed.map((text, index) => (
         <li
           key={index}
@@ -70,14 +70,14 @@ function Logo({ company }: { company: string }) {
     <img
       src={`assets/${fileName}.png`}
       alt={company}
-      className="h-3 inline-block mr-1 align-baseline	"
+      className="h-3 inline-block mr-2 align-baseline contrast-50"
     />
   );
 }
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-4xl p-6 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
-      {/* <header className="mb-4">
+    <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
+      <header className="mb-2">
         <div className="flex justify-between items-start gap-6">
           <div className="rounded-lg text-right">
             <h1 className="text-4xl font-bold text-foreground mb-4">Naren Ranjit</h1>
@@ -91,61 +91,63 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
             </p>
             <p className="text-muted-foreground text-sm mb-2">(415) 935-1432</p>
           </div>
-          <div className="flex-1 border-l-4 border-gray-300 pl-6 pr-3 py-2 bg-gray-50">
+          <div className="flex-1 border-l-4 border-slate-300 pl-6 pr-3 text-muted-foreground">
             <Text multiline>{resume.summary.description}</Text>
             <VerticalList list={resume.summary.achievements} />
           </div>
         </div>
-      </header> */}
-      <header>
+      </header>
+      {/* <header>
         <Heading type="h1">{resume.name}</Heading>
 
         <div className="border-l-2 border-gray-300 px-4  mt-4 mb-4 italic text-muted-foreground">
           <Text multiline>{resume.summary.description}</Text>
           <VerticalList list={resume.summary.achievements} />
         </div>
-      </header>
+      </header> */}
       <section>
-        <h2 className="text-xl font-bold text-blue-500 mb-3">Experience</h2>
-        <div>
+        <h2 className="text-xl font-bold text-slate-500 mb-0 mt-4 text-right">Work Experience</h2>
+        <div className="">
           {resume.experience.map((job, jobIndex) => (
-            <div className="mb-8">
-              <span>
-                {" "}
+            <div className="mb-8 print:mb-4">
+              {/* rgb(138, 150, 170) */}
+              <div className="py-1 px-3 mb-2 bg-slate-400 text-white font-bold">
                 <Logo company={job.companyName} />
                 {job.companyName}
-              </span>
+              </div>
               {job.titles.map((title, titleIndex) => (
                 <div className="mb-4 last:mb-0">
-                  <div className="flex justify-between items-baseline">
-                    <span className="font-bold">{title.name}</span>
+                  <div className="flex justify-between items-baseline relative">
+                    <span className="font-bold text-lg">{title.name}</span>
                     <Date from={title.tenure.start} to={title.tenure.end} />
                   </div>
-                  {"role" in title && (
-                    <>
-                      {title.role.map((role, roleIndex) => (
-                        <div className="last:mt-4" key={`role-${roleIndex}`}>
-                          <div className="text-sm text-muted-foreground mb-2">{role.name}</div>
-                          {role.description && (
-                            <div className="my-2">
-                              <Text>{role.description}</Text>
-                            </div>
-                          )}
-                          <VerticalList list={role.achievements} />
-                        </div>
-                      ))}
-                    </>
-                  )}
-                  {!("role" in title) && (
-                    <>
-                      {title.description && (
-                        <div className="my-2">
-                          <Text>{title.description}</Text>
-                        </div>
-                      )}
-                      <VerticalList list={title.achievements} />
-                    </>
-                  )}
+                  <div className="pr-1 text-muted-foreground">
+                    {"role" in title && (
+                      <>
+                        {title.role.map((role, roleIndex) => (
+                          <div className="last:mt-4" key={`role-${roleIndex}`}>
+                            <div className="text-sm text-muted-foreground mb-2">{role.name}</div>
+                            {role.description && (
+                              <div className="my-2">
+                                <Text>{role.description}</Text>
+                              </div>
+                            )}
+                            <VerticalList list={role.achievements} />
+                          </div>
+                        ))}
+                      </>
+                    )}
+                    {!("role" in title) && (
+                      <>
+                        {title.description && (
+                          <div className="my-2">
+                            <Text>{title.description}</Text>
+                          </div>
+                        )}
+                        <VerticalList list={title.achievements} />
+                      </>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

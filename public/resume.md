@@ -4,12 +4,11 @@
 
 ## Summary
 
-I'm an impact-oriented leader who thrives at the intersection of product and engineering. I lead high-performing teams to craft products that captivate through solutions that scale. I foster cultures defined by curiosity, speed, and purpose, bridging vision and execution by shipping fast and learning often.
+I'm an impact-oriented leader who thrives at the intersection of product and engineering. I lead teams to craft products that captivate through engineering that scales. I foster cultures defined by curiosity, speed, and purpose, bridging vision and execution by shipping fast and learning often.
 
 - Proven **ability to scale** organizations during explosive growth as well navigating them through downturns.
 - Deep **product and user focus**, with adaptability to wear multiple hats to get things done.
 - Demonstrated success aligning **engineering efficiency** and scalability with long-term business goals.
-- Fostered cultures defined by **collaboration, learning, and grit**, with a strong bias for action.
 - Genuine **passion for programming** and architecting usable interfaces.
 
 ## Experience
@@ -35,9 +34,9 @@ Owned engineering for the Question-and-Answer platform, generating ~$40M annuall
 
 #### Senior Engineering Manager [2019 - 2021]
 
-Led engineering for ‘Textbook Solutions,’ a multi-million-dollar 0-1 product launch, resolving product risks and stakeholder conflicts to deliver on-time, on-budget, and hitting product goals.
+Led engineering for ‘Textbook Solutions,’ a multi-million-dollar multi-year 0-1 product launch, resolving product risks and stakeholder conflicts to deliver on-time, on-budget, and hitting product goals.
 
-- Championed **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These apps contributed to **30% of platform traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
+- Championed **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These contributed to **30% of traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
 - Achieved **80% promotion rate** among 12 direct reports through mentorship and coaching.
 
 ### Frontpage.to
@@ -48,7 +47,7 @@ Frontpage.to was a customizable content aggregation platform for creating person
 
 - Scaled to **10K Daily Active Users** through organic marketing and community-building.
 - Engaged directly with users to gather feedback, iterating on features to achieve a **50% Day-30 retention rate**.
-- **Owned every aspect of the product** - from customer research to design and development — ensuring a cohesive vision that led to sustained engagement and growth.
+- **Owned every aspect of the product** - from customer research to design to development,
 
 ### Forio
 
