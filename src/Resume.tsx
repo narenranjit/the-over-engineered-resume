@@ -3,7 +3,7 @@ import { marked } from "marked";
 import "./resume.css";
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
-    <span className=" text-xs px-2 py-1 rounded-md bg-slate-200 text-slate-700">
+    <span className=" text-xs px-2 py-1 rounded-md bg-slate-200 text-slate-600">
       {from} &ndash; {to || "Present"}
     </span>
   );
@@ -17,7 +17,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
       {parsed.map((text, index) => (
         <li
           key={index}
-          // style={{ marginLeft: "-1px" }}
+          style={{ marginLeft: "-2px" }}
           dangerouslySetInnerHTML={{ __html: text }}
         ></li>
       ))}
