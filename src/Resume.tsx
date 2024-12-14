@@ -4,7 +4,7 @@ import "./resume.css";
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
     <span className=" text-sm leading-none align-baseline">
-      {from} - {to || "Present"}
+      {from} &ndash; {to || "Present"}
     </span>
   );
 }
@@ -82,7 +82,7 @@ function InlineList({ list }: { list: string[] | undefined }) {
   );
 }
 function sanitizeText(text: string) {
-  return text.toLowerCase().replace(/\s/g, "-");
+  return text.toLowerCase().replace(/[\s/.]/g, "-");
 }
 function Logo({ company }: { company: string }) {
   return (

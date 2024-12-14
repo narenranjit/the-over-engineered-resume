@@ -47,7 +47,7 @@ Frontpage.to was a customizable content aggregation platform for creating person
 
 - Scaled to **10K Daily Active Users** through organic marketing and community-building.
 - Engaged directly with users to gather feedback, iterating on features to achieve a **50% Day-30 retention rate**.
-- **Owned every aspect of the product** - from customer research to design to development,
+- **Owned every aspect of the product** - from customer research to design to development.
 
 ### Forio
 
@@ -97,8 +97,8 @@ A real-time visualization of emotions on Twitter, mapping sentiment globally by 
 
 Tech Stack: Typescript. ThreeJS. React. NextJS. Cloudflare Workers.
 
-### The Over-engineered Resume Generator
+### The Over-engineered Resumé Generator
 
-Built to create this very resume! It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
+Built to create this very resumé! It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
 
 Tech Stack: Typescript. React. Tailwind.
