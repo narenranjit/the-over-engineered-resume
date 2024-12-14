@@ -25,7 +25,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
   );
 }
 function Section({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
-  const levels = ["mb-6", "mb-4", "mb-2"];
+  const levels = ["mb-5", "mb-4", "mb-2"];
   return <section className={levels[level - 1]}>{children}</section>;
 }
 function Heading({
@@ -60,7 +60,12 @@ function Heading({
 
 function Text({ children, multiline = false }: { children: string; multiline?: boolean }) {
   const parsed = (multiline ? marked.parse(children) : marked.parseInline(children)) as string;
-  return <div className="text-sm [&>p]:mb-2" dangerouslySetInnerHTML={{ __html: parsed }}></div>;
+  return (
+    <div
+      className="text-sm [&>p]:mb-2 text-muted-foreground"
+      dangerouslySetInnerHTML={{ __html: parsed }}
+    ></div>
+  );
 }
 function InlineList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
@@ -100,8 +105,8 @@ function ContactItem({ href, text }: { href: string; text: string }) {
 }
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
-      <header className="mb-4">
+    <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:shadow-none print:p-0 print:m-0">
+      <header className="mb-6">
         <div className="flex justify-between items-start gap-6">
           <div className="text-right">
             <Heading type="h1">{resume.name}</Heading>
@@ -133,7 +138,6 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
             className={`mb-10 last-of-type:mb-0 company-${sanitizeText(job.companyName)}`}
             key={job.companyName}
           >
-            {/* rgb(138, 150, 170) */}
             <Heading type="h3">
               <Logo company={job.companyName} />
               {job.companyName}
@@ -144,14 +148,14 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                   <Heading type="h4">{title.name}</Heading>
                   <Date from={title.tenure.start} to={title.tenure.end} />
                 </div>
-                <div className="pr-1 text-muted-foreground">
+                <div className="pr-2 text-muted-foreground">
                   {"role" in title && (
                     <>
                       {title.role.map((role, roleIndex) => (
                         <div className="last:mt-4" key={`role-${roleIndex}`}>
                           <Heading type="h5">{role.name}</Heading>
                           {role.description && (
-                            <div className="my-2">
+                            <div className="my-1">
                               <Text>{role.description}</Text>
                             </div>
                           )}
@@ -193,9 +197,16 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         {resume.projects.map((project, index) => (
           <Section level={2} key={index}>
             <Heading type="h4">{project.name}</Heading>
+            {/* {project.link && (
+              <Heading type="h5">
+                <a className="text-xs inline-block" href={project.link}>
+                  {project.link}
+                </a>
+              </Heading>
+            )} */}
             <Text>{project.description}</Text>
             {project.techStack && (
-              <div className="flex items-center space-x-2 my-2">
+              <div className="flex items-center space-x-2 mt-1 mb-2 text-muted-foreground">
                 <Heading type="h6">Tech Stack:</Heading>
                 <InlineList list={project.techStack} />
               </div>

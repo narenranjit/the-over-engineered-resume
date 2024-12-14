@@ -58,7 +58,7 @@ Frontpage.to was a customizable content aggregation platform for creating person
 Led Forio's consulting division, collaborating with Harvard, Wharton, IBM, and Fortune 500 companies, to build data-rich web simulations. Also owned all user-facing elements of the platform.
 
 - **Grew team from 3 to 30**, establishing scalable hiring processes and engineering best practices.
-- Led consulting engagements, from **B2B sales calls to drafting SoWs**, and developed an estimation framework with 90% accuracy.
+- Led consulting engagements, from **B2B sales calls to drafting SoWs**.
 - Served as **lead architect** for critical projects, including FlowJS—a framework-agnostic two-way data-binding tool I ideated, validated, and built. Owned design and specification of all REST APIs.
 - Wore multiple hats, taking on product management, design, and project management roles as needed.
 
@@ -68,7 +68,7 @@ Started as employee #3, driven by desire to have direct impact in a growing comp
 
 - Architected most of the technical stack, laying the foundation for the team’s future growth.
 - Created **a front-end framework** to bootstrap simulations, still actively used over 12 years later.
-- Built an innovative, IE6-compatible cross-iframe communication framework for real-time multiplayer applications.
+- Built an innovative IE6-compatible cross-iframe communication framework for real-time multiplayer apps.
 
 ### Symantec
 
@@ -87,18 +87,18 @@ Joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expert
 
 ### Chandrian
 
-A semantic syntax highlighting theme for VSCode, designed to make scanning large codebases easier and to highlight errors more effectively. Fully accessible, meeting “AA” WCAG standards. I created this for personal use, addressing frustrations I had with existing options, and has since gained traction with over 3,000 active users.
+A semantic syntax theme for VSCode, crafted to simplify large codebase navigation and highlight errors effectively. Fully WCAG 'AA' accessible, and supports over 3,000 active users.
 
 Link: https://marketplace.visualstudio.com/items?itemName=narenranjit.chandrian
 
 ### Feelings.earth
 
-A visualization of emotions on Twitter across the globe, mapping tweets in real-time to explore how sentiment changes by time of day and location. Originally built last Christmas out of curiosity about what people around the world were wishing for, it has since expanded to identify and handle a wider range of emotions.
+A real-time visualization of emotions on Twitter, mapping sentiment globally by time and location.
 
 Tech Stack: Typescript. ThreeJS. React. NextJS. Cloudflare Workers.
 
-### SpellWhiz
+### The Over-engineered Resume Generator
 
-A word-based collaborative real-time multiplayer card game. This was an attempt to recreate a nostalgic game I enjoyed in my childhood, now adapted as a multiplayer digital version to play with my own kids (temporarily offline)
+Built to create this very resume! It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
 
-Tech Stack: Typescript. React. Firebase. Tailwind. Vite.
+Tech Stack: Typescript. React. Tailwind.
