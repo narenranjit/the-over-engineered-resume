@@ -3,7 +3,7 @@ import { marked } from "marked";
 import "./resume.css";
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
-    <span className=" text-sm">
+    <span className=" text-sm leading-none align-baseline">
       {from} - {to || "Present"}
     </span>
   );
@@ -45,7 +45,7 @@ function Heading({
     );
   } else if (type === "h3") {
     return (
-      <h3 className="py-1 px-3 mb-2 bg-slate-400 text-white font-semibold first:-mt-4">
+      <h3 className="py-1 px-3 mb-2 bg-slate-400 text-white font-semibold first-of-type:-mt-4">
         {children}
       </h3>
     );
@@ -92,7 +92,7 @@ function Logo({ company }: { company: string }) {
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
-      <header className="mb-2">
+      <header className="mb-4">
         <div className="flex justify-between items-start gap-6">
           <div className="text-right">
             <Heading type="h1">Naren Ranjit</Heading>
@@ -123,7 +123,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       <Section>
         <Heading type="h2">Work Experience</Heading>
         {resume.experience.map((job) => (
-          <div className={`mb-8 company-${sanitizeText(job.companyName)}`} key={job.companyName}>
+          <div
+            className={`mb-10 last-of-type:mb-0 company-${sanitizeText(job.companyName)}`}
+            key={job.companyName}
+          >
             {/* rgb(138, 150, 170) */}
             <Heading type="h3">
               <Logo company={job.companyName} />

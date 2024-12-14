@@ -68,13 +68,13 @@ Started as employee #3, driven by desire to have direct impact in a growing comp
 
 - Architected most of the technical stack, laying the foundation for the team’s future growth.
 - Created **a front-end framework** to bootstrap simulations, still actively used over 12 years later.
-- Developed an innovative, IE6-compatible cross-iframe communication framework to enable real-time multiplayer applications.
+- Built an innovative, IE6-compatible cross-iframe communication framework for real-time multiplayer applications.
 
 ### Symantec
 
 #### Web Developer [2007 - 2008]
 
-Originally joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expertise, and leveraged background in design to become front-end lead, spearheading development of a rule-based interface for SQL queries.
+Joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expertise, and leveraged background in design to become front-end lead, spearheading development of a rule-based interface for SQL queries.
 
 - Introduced automated front-end testing to improve quality and reduce regression issues.
 
