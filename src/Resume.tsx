@@ -44,7 +44,7 @@ function Heading({
   type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }) {
   if (type === "h1") {
-    return <h1 className="text-4xl font-bold text-foreground mb-4">{children}</h1>;
+    return <h1 className="text-4xl font-bold text-foreground mb-4 text-slate-800">{children}</h1>;
   } else if (type === "h2") {
     return (
       <h2 className="text-xl font-black uppercase text-slate-600 mb-4 mt-4 text-right border-b-2 border-slate-400">
