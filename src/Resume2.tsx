@@ -89,22 +89,28 @@ function Logo({ company }: { company: string }) {
   );
 }
 
+function ContactItem({ href, text }: { href: string; text: string }) {
+  return (
+    <p className="text-muted-foreground text-sm mb-2">
+      <a href={href} className="hover:underline">
+        {text}
+      </a>
+    </p>
+  );
+}
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
       <header className="mb-4">
         <div className="flex justify-between items-start gap-6">
           <div className="text-right">
-            <Heading type="h1">Naren Ranjit</Heading>
-            <p className="text-muted-foreground text-sm mb-2">
-              <a href="mailto:narendran.ranjit@gmail.com" className="hover:underline">
-                narendran.ranjit@gmail.com
-              </a>
-            </p>
-            <p className="text-muted-foreground text-sm mb-2">
-              <a href="https://linkedin.com/in/narenranjit">linkedin.com/in/narenranjit</a>
-            </p>
-            <p className="text-muted-foreground text-sm mb-2">(415) 935-1432</p>
+            <Heading type="h1">{resume.name}</Heading>
+            <ContactItem href={`mailto:${resume.contact.email}`} text={resume.contact.email} />
+            <ContactItem
+              href={`https://${resume.contact.linkedin}`}
+              text={resume.contact.linkedin}
+            />
+            <ContactItem href={`tel:${resume.contact.phone}`} text={resume.contact.phone} />
           </div>
           <div className="flex-1 border-l-4 border-slate-300 pl-6 pr-3 text-muted-foreground">
             <Text multiline>{resume.summary.description}</Text>

@@ -67,11 +67,23 @@ function extractTitleAndTenure(header: string): [string, Tenure] {
   return [title.trim(), tenureFromDate(date)];
 }
 
+function extractContactInfo(text: string) {
+  //(415) 935-1432 | narendran.ranjit@gmail.com | linkedin.com/in/narenranjit
+  const phoneMatch = text.match(/\(\d{3}\) \d{3}-\d{4}/);
+  const emailMatch = text.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/);
+  const linkedinMatch = text.match(/linkedin\.com\/in\/[A-Za-z0-9-]+/);
+
+  return {
+    phone: phoneMatch ? phoneMatch[0] : "",
+    email: emailMatch ? emailMatch[0] : "",
+    linkedin: linkedinMatch ? linkedinMatch[0] : "",
+  };
+}
 export default function markdownToResume(markdown: string): Resume {
   const tokens = marked.lexer(markdown);
   const resume: Resume = {
     name: "",
-    contact: [],
+    contact: { linkedin: "", email: "", phone: "" },
     summary: { description: "", achievements: [] },
     experience: [],
     education: [],
@@ -86,7 +98,7 @@ export default function markdownToResume(markdown: string): Resume {
   const contact = tokens.find(
     (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("linkedin") !== -1,
   )! as Tokens.Paragraph;
-  resume.contact = contact.text.split(" • ");
+  resume.contact = extractContactInfo(contact.text);
 
   const summaryTokens = getSectionItems(tokens, "summary");
   const summaryText = retreiveParagraphText(summaryTokens);

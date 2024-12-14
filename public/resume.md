@@ -1,6 +1,6 @@
 # Naren Ranjit
 
-(415) 935-1432 • narendran.ranjit@gmail.com • linkedin.com/in/narenranjit
+(415) 935-1432 | narendran.ranjit@gmail.com | linkedin.com/in/narenranjit
 
 ## Summary
 
