@@ -3,7 +3,7 @@ import { marked } from "marked";
 import "./resume.css";
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
-    <span className=" text-sm leading-none align-baseline">
+    <span className=" text-xs px-2 py-1 rounded-md bg-slate-200 text-slate-600">
       {from} &ndash; {to || "Present"}
     </span>
   );
@@ -58,7 +58,7 @@ function Heading({
       </h3>
     );
   } else if (type === "h4") {
-    return <h4 className="font-bold text-lg">{children}</h4>;
+    return <h4 className="font-bold text-lg text-slate-800">{children}</h4>;
   } else if (type === "h5") {
     return <h5 className="text-sm text-muted-foreground mb-2">{children}</h5>;
   } else if (type === "h6") {
