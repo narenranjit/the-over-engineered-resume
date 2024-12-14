@@ -24,9 +24,17 @@ function VerticalList({ list }: { list: string[] | undefined }) {
     </ul>
   );
 }
-function Section({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
+function Section({
+  children,
+  level = 1,
+  ...others
+}: { children: React.ReactNode; level?: number } & React.HTMLAttributes<HTMLDivElement>) {
   const levels = ["mb-5", "mb-4", "mb-2"];
-  return <section className={levels[level - 1]}>{children}</section>;
+  return (
+    <section className={levels[level - 1]} {...others}>
+      {children}
+    </section>
+  );
 }
 function Heading({
   children,

@@ -37,7 +37,7 @@ html {
 }
 
 @page {
-  size: letter;
+  size: auto;
   margin: 0.5in 0.75in 0.5in 0.75in;
 }
 @media print {
@@ -47,5 +47,8 @@ html {
     background-image: none;
     margin: 0;
     padding: 0;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
   }
 }
