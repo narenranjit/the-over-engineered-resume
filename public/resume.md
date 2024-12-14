@@ -58,16 +58,16 @@ Frontpage.to was a customizable content aggregation platform for creating person
 Led Forio's consulting division, collaborating with Harvard, Wharton, IBM, and Fortune 500 companies, to build data-rich web simulations. Also owned all user-facing elements of the platform.
 
 - **Grew team from 3 to 30**, establishing scalable hiring processes and engineering best practices.
-- **Led consulting** engagements, from sales calls to drafting SoWs, and developed an estimation framework with 90% accuracy.
-- Served as **lead architect** for critical projects, including FlowJS—a framework-agnostic two-way data-binding tool I ideated, validated, and built.Owned design and specification of all REST APIs.
-- Wore **multiple hats**, taking on product management, design, and project management roles as needed.
+- Led consulting engagements, from **B2B sales calls to drafting SoWs**, and developed an estimation framework with 90% accuracy.
+- Served as **lead architect** for critical projects, including FlowJS—a framework-agnostic two-way data-binding tool I ideated, validated, and built. Owned design and specification of all REST APIs.
+- Wore multiple hats, taking on product management, design, and project management roles as needed.
 
 #### Web Developer [2008 - 2011]
 
 Started as employee #3, driven by desire to have direct impact in a growing company. Developed user interfaces for data-rich web simulations, as well as frameworks to simplify their creation.
 
 - Architected most of the technical stack, laying the foundation for the team’s future growth.
-- Created a front-end framework to bootstrap simulations, still actively used over 12 years later.
+- Created **a front-end framework** to bootstrap simulations, still actively used over 12 years later.
 - Developed an innovative, IE6-compatible cross-iframe communication framework to enable real-time multiplayer applications.
 
 ### Symantec

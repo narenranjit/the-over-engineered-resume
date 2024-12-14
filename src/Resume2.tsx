@@ -1,6 +1,6 @@
 import type { Resume } from "./util/types";
 import { marked } from "marked";
-
+import "./resume.css";
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
     <span className=" text-sm">
@@ -25,7 +25,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
   );
 }
 function Section({ children, level = 1 }: { children: React.ReactNode; level?: number }) {
-  const levels = ["mb-8", "mb-8", "mb-6", "mb-4"];
+  const levels = ["mb-6", "mb-4", "mb-2"];
   return <section className={levels[level - 1]}>{children}</section>;
 }
 function Heading({
@@ -76,16 +76,19 @@ function InlineList({ list }: { list: string[] | undefined }) {
     </ul>
   );
 }
+function sanitizeText(text: string) {
+  return text.toLowerCase().replace(/\s/g, "-");
+}
 function Logo({ company }: { company: string }) {
-  const fileName = company.toLowerCase().replace(" ", "-");
   return (
     <img
-      src={`assets/${fileName}.png`}
+      src={`assets/${sanitizeText(company)}.png`}
       alt={company}
       className="h-3 inline-block mr-2 align-baseline contrast-75"
     />
   );
 }
+
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:p-0 print:m-0">
@@ -120,14 +123,14 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       <Section>
         <Heading type="h2">Work Experience</Heading>
         {resume.experience.map((job) => (
-          <div className="mb-8 print:mb-4" key={job.companyName}>
+          <div className={`mb-8 company-${sanitizeText(job.companyName)}`} key={job.companyName}>
             {/* rgb(138, 150, 170) */}
             <Heading type="h3">
               <Logo company={job.companyName} />
               {job.companyName}
             </Heading>
             {job.titles.map((title) => (
-              <div className="mb-4 last:mb-0" key={title.name}>
+              <div className={`mb-4 last:mb-0 ${sanitizeText(title.name)}`} key={title.name}>
                 <div className="flex justify-between items-baseline relative">
                   <Heading type="h4">{title.name}</Heading>
                   <Date from={title.tenure.start} to={title.tenure.end} />
@@ -151,7 +154,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
                   {!("role" in title) && (
                     <>
                       {title.description && (
-                        <div className="my-2">
+                        <div className="my-1">
                           <Text>{title.description}</Text>
                         </div>
                       )}
@@ -167,7 +170,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       <Section>
         <Heading type="h2">Education</Heading>
         {resume.education.map((edu, index) => (
-          <Section level={4} key={index}>
+          <Section level={3} key={index}>
             <div className="flex justify-between">
               <Heading type="h4">{edu.degree}</Heading>
               <Date from={edu.date.start} to={edu.date.end} />
@@ -179,11 +182,11 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       <Section>
         <Heading type="h2">Personal Projects</Heading>
         {resume.projects.map((project, index) => (
-          <Section level={3} key={index}>
+          <Section level={2} key={index}>
             <Heading type="h4">{project.name}</Heading>
             <Text>{project.description}</Text>
             {project.techStack && (
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 my-2">
                 <Heading type="h6">Tech Stack:</Heading>
                 <InlineList list={project.techStack} />
               </div>
