@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        foreground: "hsl(var(--foreground))",
+        foreground: "var(--foreground)",
         muted: {
-          foreground: "hsl(var(--muted-foreground))",
+          foreground: "var(--muted-foreground)",
         },
       },
     },
