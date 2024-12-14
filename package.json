@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate": "node build/generate-pdf.js"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -15,7 +16,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
-    "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
@@ -26,6 +26,7 @@
     "globals": "^15.12.0",
     "marked": "^15.0.3",
     "postcss": "^8.4.49",
+    "puppeteer": "^23.10.4",
     "tailwindcss": "^3.4.15",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.15.0",
