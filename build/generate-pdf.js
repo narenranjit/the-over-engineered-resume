@@ -9,8 +9,14 @@ async function renderToPDF(url, outputPath) {
   await page.goto(url, { waitUntil: "networkidle2" });
 
   await page.pdf({
+    printBackground: true,
+    margin: {
+      top: "0.5in",
+      right: "0.5in",
+      bottom: "0.5in",
+      left: "0.5in",
+    },
     path: outputPath,
-    preferCSSPageSize: true,
   });
 
   await browser.close();
@@ -65,7 +71,7 @@ async function main() {
     console.log("Vite preview server started.");
 
     const url = "http://localhost:3001"; // Default Vite preview URL
-    const outputPath = "dist/resume.pdf";
+    const outputPath = "dist/naren-ranjit-resume.pdf";
 
     await renderToPDF(url, outputPath);
     console.log("PDF saved successfully!");

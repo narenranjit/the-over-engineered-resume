@@ -97,7 +97,7 @@ A real-time visualization of emotions on Twitter, mapping sentiment globally by 
 
 Tech Stack: Typescript. ThreeJS. React. NextJS. Cloudflare Workers.
 
-### The Over-engineered Resumé Generator
+### The Over-Engineered Resumé Generator
 
 Built to create this very resumé! It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
 
