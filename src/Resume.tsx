@@ -15,11 +15,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
   return (
     <ul className="list-disc pl-4 mt-2 space-y-1 text-sm marker:text-muted-foreground">
       {parsed.map((text, index) => (
-        <li
-          key={index}
-          style={{ marginLeft: "-2px" }}
-          dangerouslySetInnerHTML={{ __html: text }}
-        ></li>
+        <li key={index} dangerouslySetInnerHTML={{ __html: text }}></li>
       ))}
     </ul>
   );
