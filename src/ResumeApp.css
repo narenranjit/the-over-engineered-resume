@@ -37,8 +37,7 @@ html {
 }
 
 @page {
-  size: auto;
-  margin: 0.5in 0.75in 0.5in 0.75in;
+  size: letter;
 }
 @media print {
   body,
