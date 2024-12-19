@@ -29,7 +29,7 @@ function Section({
   level = 1,
   ...others
 }: { children: React.ReactNode; level?: number } & React.HTMLAttributes<HTMLDivElement>) {
-  const levels = ["mb-5", "mb-4", "mb-2"];
+  const levels = ["mb-8 print:mb-5", "mb-4", "mb-2"];
   return (
     <section className={levels[level - 1]} {...others}>
       {children}
@@ -204,14 +204,15 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         <Heading type="h2">Personal Projects</Heading>
         {resume.projects.map((project, index) => (
           <Section level={2} key={index}>
-            <Heading type="h4">{project.name}</Heading>
-            {/* {project.link && (
-              <Heading type="h5">
-                <a className="text-xs inline-block" href={project.link}>
+            <div className="flex items-center">
+              <Heading type="h4">{project.name}</Heading>
+              {project.link && (
+                <a className="text-xs text-muted-foreground inline-block ml-2" href={project.link}>
                   {project.link}
                 </a>
-              </Heading>
-            )} */}
+              )}
+            </div>
+
             <Text>{project.description}</Text>
             {project.techStack && (
               <div className="flex items-center space-x-2 mt-1 mb-2 text-muted-foreground">
