@@ -152,7 +152,13 @@ export default function markdownToResume(markdown: string): Resume {
   const educationTokens = getSectionItems(tokens, "education")![0] as Tokens.List;
   const education = educationTokens.items.map((item) => {
     const [degree, institution, date] = item.text.split(" | ");
-    return { degree: degree.trim(), institution: institution.trim(), date: tenureFromDate(date) };
+    const [degreeName, major] = degree.split(",");
+    return {
+      degree: degreeName,
+      major,
+      institution: institution.trim(),
+      date: tenureFromDate(date),
+    };
   });
   resume.education = education;
   // console.log("education", education);

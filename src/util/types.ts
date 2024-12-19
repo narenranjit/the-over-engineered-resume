@@ -30,6 +30,7 @@ export interface PersonalProject {
 
 export interface Education {
   degree: string;
+  major: string;
   institution: string;
   date: Tenure;
 }

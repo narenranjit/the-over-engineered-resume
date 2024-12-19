@@ -39,30 +39,39 @@ function Section({
 function Heading({
   children,
   type,
+  className = "",
 }: {
   children: React.ReactNode;
   type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-}) {
+} & React.HTMLAttributes<HTMLHeadingElement>) {
   if (type === "h1") {
-    return <h1 className="text-4xl font-bold text-foreground mb-4 text-slate-800">{children}</h1>;
+    return (
+      <h1 className={`text-4xl font-bold text-foreground mb-4 text-slate-800 ${className}`}>
+        {children}
+      </h1>
+    );
   } else if (type === "h2") {
     return (
-      <h2 className="text-xl font-black uppercase text-slate-600 mb-4 mt-4 text-right border-b-2 border-slate-400">
+      <h2
+        className={`text-xl font-black uppercase text-slate-600 mb-4 mt-4 text-right border-b-2 border-slate-400 ${className}`}
+      >
         {children}
       </h2>
     );
   } else if (type === "h3") {
     return (
-      <h3 className="py-1 px-3 mb-2 bg-slate-400 text-white font-semibold first-of-type:-mt-4">
+      <h3
+        className={`py-1 px-3 mb-2 bg-slate-400 text-white font-semibold first-of-type:-mt-4 ${className}`}
+      >
         {children}
       </h3>
     );
   } else if (type === "h4") {
-    return <h4 className="font-bold text-lg text-slate-800">{children}</h4>;
+    return <h4 className={`font-bold text-lg text-slate-800 ${className}`}>{children}</h4>;
   } else if (type === "h5") {
-    return <h5 className="text-sm text-muted-foreground mb-2">{children}</h5>;
+    return <h5 className={`text-sm text-muted-foreground mb-2 ${className}`}>{children}</h5>;
   } else if (type === "h6") {
-    return <h6 className=" text-sm font-semibold">{children}</h6>;
+    return <h6 className={`text-sm font-semibold ${className}`}>{children}</h6>;
   }
 }
 
@@ -193,7 +202,9 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         {resume.education.map((edu, index) => (
           <Section level={3} key={index}>
             <div className="flex justify-between">
-              <Heading type="h4">{edu.degree}</Heading>
+              <Heading type="h4">
+                {edu.degree}, <span className="font-semibold">{edu.major}</span>
+              </Heading>
               <Date from={edu.date.start} to={edu.date.end} />
             </div>
             <Text>{edu.institution}</Text>
@@ -204,7 +215,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         <Heading type="h2">Personal Projects</Heading>
         {resume.projects.map((project, index) => (
           <Section level={2} key={index}>
-            <div className="flex items-center">
+            <div className="flex items-baseline">
               <Heading type="h4">{project.name}</Heading>
               {project.link && (
                 <a className="text-xs text-muted-foreground inline-block ml-2" href={project.link}>
