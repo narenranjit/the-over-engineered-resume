@@ -104,7 +104,7 @@ function Logo({ company }: { company: string }) {
 
 function ContactItem({ href, text }: { href: string; text: string }) {
   return (
-    <p className="text-muted-foreground text-sm mb-2">
+    <p className="text-muted-foreground text-sm mb-2 leading-tight">
       <a href={href} className="hover:underline">
         {text}
       </a>
