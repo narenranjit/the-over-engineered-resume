@@ -3,7 +3,7 @@ import { marked } from "marked";
 import "./resume.css";
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
-    <span className=" text-xs px-2 py-1 rounded-md bg-slate-200 text-slate-600">
+    <span className=" text-xs px-2 py-1 rounded-md bg-slate-200 text-slate-600 leading-none">
       {from} &ndash; {to || "Present"}
     </span>
   );
@@ -13,7 +13,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
   const parsed = list.map((item) => marked.parseInline(item));
   return (
-    <ul className="list-disc pl-4 mt-2 space-y-1 text-sm marker:text-muted-foreground">
+    <ul className="list-disc pl-4 mt-2 space-y-1 text-sm marker:text-slate-400">
       {parsed.map((text, index) => (
         <li
           className="print:ml-[1px] ml-[-2px]"
@@ -106,7 +106,7 @@ function Logo({ company }: { company: string }) {
     <img
       src={`assets/${sanitizeText(company)}.png`}
       alt={company}
-      className="h-3 inline-block mr-2 align-baseline contrast-75"
+      className="h-3 w-3 inline-block mr-2 align-baseline contrast-75"
     />
   );
 }
@@ -161,7 +161,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
             </Heading>
             {job.titles.map((title) => (
               <div className={`mb-4 last:mb-0 ${sanitizeText(title.name)}`} key={title.name}>
-                <div className="flex justify-between items-baseline relative">
+                <div className="flex justify-between items-center relative">
                   <Heading type="h4">{title.name}</Heading>
                   <Date from={title.tenure.start} to={title.tenure.end} />
                 </div>
@@ -201,7 +201,7 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         <Heading type="h2">Education</Heading>
         {resume.education.map((edu, index) => (
           <Section level={3} key={index}>
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <Heading type="h4">
                 {edu.degree}, <span className="font-semibold">{edu.major}</span>
               </Heading>
