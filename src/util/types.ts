@@ -36,7 +36,10 @@ export interface Education {
 }
 
 export interface Resume {
-  name: string;
+  name: {
+    first: string;
+    last: string;
+  };
   contact: {
     linkedin: string;
     email: string;

@@ -82,7 +82,7 @@ function extractContactInfo(text: string) {
 export default function markdownToResume(markdown: string): Resume {
   const tokens = marked.lexer(markdown);
   const resume: Resume = {
-    name: "",
+    name: { first: "", last: "" },
     contact: { linkedin: "", email: "", phone: "" },
     summary: { description: "", achievements: [] },
     experience: [],
@@ -93,7 +93,9 @@ export default function markdownToResume(markdown: string): Resume {
   const nameToken = tokens.find(
     (token) => token.type === "heading" && token.depth === 1,
   )! as Tokens.Heading;
-  resume.name = nameToken.text;
+  const [first, last] = nameToken.text.split(" ");
+  resume.name.first = first;
+  resume.name.last = last;
 
   const contact = tokens.find(
     (token) => token.type === "paragraph" && token.text.toLowerCase().indexOf("linkedin") !== -1,

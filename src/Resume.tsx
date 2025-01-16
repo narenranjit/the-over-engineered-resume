@@ -126,7 +126,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
       <header className="mb-6">
         <div className="flex justify-between items-start gap-6">
           <div className="text-right">
-            <Heading type="h1">{resume.name}</Heading>
+            <Heading type="h1">
+              <span className="text-slate-800 font-extrabold">{resume.name.first}</span>&nbsp;
+              <span className="text-slate-600">{resume.name.last}</span>
+            </Heading>
             <ContactItem href={`mailto:${resume.contact.email}`} text={resume.contact.email} />
             <ContactItem
               href={`https://${resume.contact.linkedin}`}
