@@ -219,12 +219,9 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         {resume.projects.map((project, index) => (
           <Section level={2} key={index}>
             <div className="flex items-baseline">
-              <Heading type="h4">{project.name}</Heading>
-              {project.link && (
-                <a className="text-xs text-muted-foreground inline-block ml-2" href={project.link}>
-                  {project.link}
-                </a>
-              )}
+              <Heading type="h4">
+                {project.link ? <a href={project.link}>{project.name}</a> : <>{project.name}</>}
+              </Heading>
             </div>
 
             <Text>{project.description}</Text>

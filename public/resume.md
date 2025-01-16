@@ -89,20 +89,20 @@ Joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expert
 
 A semantic syntax theme for VSCode, crafted to simplify large codebase navigation and highlight errors effectively. Fully WCAG 'AA' accessible, and supports over 3,000 active users.
 
-Link: https://naren.is/building/vscode-chandrian-theme
+Link: https://marketplace.visualstudio.com/items?itemName=narenranjit.chandrian
 
-### Feelings.earth
+### Roasted Reads
 
-A real-time visualization of emotions on Twitter, mapping sentiment globally by time and location.
+Critiques your reading history based on your Goodreads profile.
 
-Link: https://feelings.earth
+Link: https://roastedreads.com
 
-Tech Stack: Typescript. ThreeJS. React. NextJS. Cloudflare Workers.
+Tech Stack: Typescript. React. Cloudflare. LLM.
 
 ### The Over-Engineered Resumé Generator
 
 Built to create this very resumé! It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
 
-Link: https://naren.is/building/the-over-engineered-resume
+Link: https://github.com/narenranjit/the-over-engineered-resume
 
 Tech Stack: Typescript. React. Tailwind.
