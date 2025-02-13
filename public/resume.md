@@ -4,7 +4,7 @@
 
 ## Summary
 
-I'm an impact-oriented leader who thrives at the intersection of product and engineering. I lead high-performing teams to craft products that captivate through engineering that scales. I foster cultures defined by curiosity, speed, and purpose, bridging vision and execution by shipping fast and learning often.
+I'm an growth-focussed leader who thrives at the intersection of product and engineering. I lead high-performing teams to craft products that captivate through engineering that scales. I foster cultures defined by curiosity, speed, and purpose, bridging vision and execution by shipping fast and learning often.
 
 - Proven **ability to scale** organizations during explosive growth as well navigating them through downturns.
 - Deep **product and user focus**, with a hands-on approach and adaptability to wear multiple hats to get things done.
