@@ -137,7 +137,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
             />
             <ContactItem href={`tel:${resume.contact.phone}`} text={resume.contact.phone} />
           </div>
-          <div className="flex-1 border-l-4 border-slate-300 pl-6 pr-3 text-muted-foreground">
+          <div
+            className="flex-1 border-l-4 border-slate-300 pl-6 pr-3 text-muted-foreground"
+            id="summary"
+          >
             <Text multiline>{resume.summary.description}</Text>
             <VerticalList list={resume.summary.achievements} />
           </div>
@@ -163,8 +166,12 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
               {job.companyName}
             </Heading>
             {job.titles.map((title) => (
-              <div className={`mb-4 last:mb-0 ${sanitizeText(title.name)}`} key={title.name}>
-                <div className="flex justify-between items-center relative">
+              <div
+                style={{ zIndex: 999999 }}
+                className={`mb-4 last:mb-0 ${sanitizeText(title.name)} hover:relative hover:scale-150 hover:p-10 hover:shadow-lg hover:bg-white transition-transform duration-300`}
+                key={title.name}
+              >
+                <div className="flex justify-between items-center relative z-20">
                   <Heading type="h4">{title.name}</Heading>
                   <Date from={title.tenure.start} to={title.tenure.end} />
                 </div>
