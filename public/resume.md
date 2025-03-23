@@ -90,7 +90,7 @@ Joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expert
 
 A semantic syntax theme for VSCode, crafted to simplify navigating large codebases and highlight errors effectively. Fully WCAG 'AA' accessible, and supports over 3,000 active users.
 
-Link: https://marketplace.visualstudio.com/items?itemName=narenranjit.chandrian
+Link: https://naren.is/building/code-theme
 
 ### Roasted Reads
 
@@ -104,6 +104,6 @@ Tech Stack: Typescript. React. Cloudflare. LLM.
 
 Built to create this very resumé! It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
 
-Link: https://github.com/narenranjit/the-over-engineered-resume
+Link: https://naren.is/building/git-resume
 
 Tech Stack: Typescript. React. Tailwind.
