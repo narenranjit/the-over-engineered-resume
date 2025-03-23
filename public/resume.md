@@ -19,8 +19,8 @@ I'm a growth-focused leader who thrives at the intersection of product and engin
 
 Led cross-functional AI/ML and engineering teams through disruptive LLM shifts in EdTech. Launched multiple 0-1 products to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
 
-- **Set architectural direction and strategy** to accelerate experimentation and reduce time-to-market.
-- Fostered a **customer-centric culture**, with 70% of ICs engaging in at least 1 monthly customer interaction.
+- Defined **execution strategy** and set **technical direction** across multiple product lines, balancing rapid iteration for new bets with resilience and scale for mature, business-critical systems.
+- Fostered a **customer-centric culture**, with 70% of ICs engaging in at least one monthly customer interaction.
 - Scaled iterative hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
 - Revamped leveling framework to clarify career paths, develop EMs, and scale leadership capacity.
 
@@ -37,7 +37,7 @@ Owned engineering for the Question-and-Answer platform. Achieved **30% YoY growt
 
 Owned engineering for ‘Textbook Solutions,’ a multi-million, multi-year 0-1 initiative with uncertainty around content licensing and PMF. De-risked through phased rollouts and stakeholder alignment, delivering on-time and achieving key product goals.
 
-- Championed & led **Skunkworks project** to launch mobile and desktop apps. These contributed to **20% of traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
+- Championed and led **skunkworks project** to launch mobile and desktop apps. These contributed to **20% of traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
 - Achieved **80% promotion rate** among 12 direct reports through mentorship and coaching.
 
 ### Frontpage.to
@@ -88,13 +88,13 @@ Joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expert
 
 ### Chandrian
 
-A semantic syntax theme for VSCode, crafted to simplify large codebase navigation and highlight errors effectively. Fully WCAG 'AA' accessible, and supports over 3,000 active users.
+A semantic syntax theme for VSCode, crafted to simplify navigating large codebases and highlight errors effectively. Fully WCAG 'AA' accessible, and supports over 3,000 active users.
 
 Link: https://marketplace.visualstudio.com/items?itemName=narenranjit.chandrian
 
 ### Roasted Reads
 
-Critiques your reading history based on your Goodreads profile.
+A playful tool that critiques your reading profile through LLMs. An experiment in blending reader analytics with AI-generated snark.
 
 Link: https://roastedreads.com
 
