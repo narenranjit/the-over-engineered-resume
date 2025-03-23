@@ -4,7 +4,7 @@
 
 ## Summary
 
-I'm an growth-focussed leader who thrives at the intersection of product and engineering. I lead high-performing teams to craft products that captivate through engineering that scales. I foster cultures defined by curiosity, speed, and purpose, bridging vision and execution by shipping fast and learning often.
+I'm a growth-focused leader who thrives at the intersection of product and engineering. I lead high-performing teams to craft products that captivate through engineering that scales. I foster cultures defined by curiosity, speed, and purpose, bridging vision and execution by shipping fast and learning often.
 
 - Proven **ability to scale** organizations during explosive growth as well navigating them through downturns.
 - Deep **product and user focus**, with a hands-on approach and adaptability to wear multiple hats to get things done.
@@ -19,24 +19,25 @@ I'm an growth-focussed leader who thrives at the intersection of product and eng
 
 Led cross-functional AI/ML and engineering teams through disruptive LLM shifts in EdTech. Launched multiple 0-1 products to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
 
-- **Transitioned AI/ML strategy** from in-house to foundational models, accelerating time-to-market.
+- **Set architectural direction and strategy** to accelerate experimentation and reduce time-to-market.
 - Fostered a **customer-centric culture**, with 70% of ICs engaging in at least 1 monthly customer interaction.
-- Promoted iterative hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
-- Instituted engineering efficiency metrics, reducing **lead-time by 20%** and increasing **deployments by 15%**.
+- Scaled iterative hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
+- Revamped leveling framework to clarify career paths, develop EMs, and scale leadership capacity.
 
 #### Director of Engineering [2021 - 2022]
 
 Owned engineering for the Question-and-Answer platform. Achieved **30% YoY growth** for a $40M product line.
 
-- Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled **headcount by 30%**, while also boosting **engagement scores by 7%**.
+- Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled **headcount by 30%**, while also boosting team **engagement scores by 10%**.
+- Optimized hiring processes, reducing intake-to-onsite time by 35%.
 - Piloted **first offshore team**, creating collaboration frameworks now integral to operational strategies.
-- Proactively formed volunteer team to improve Developer Experience, achieving **40% faster tests** and **35% faster builds**, resulting in **80% engagement lift**. Secured funding for a full-time team based on this success.
+- Proactively formed volunteer team to improve Developer Experience, achieving **40% faster tests** and **35% faster builds**. Secured funding for a full-time team based on this success.
 
 #### Senior Engineering Manager [2019 - 2021]
 
-Led engineering for ‘Textbook Solutions,’ a multi-million-dollar multi-year **0-1 product launch**, resolving product risks and stakeholder conflicts to deliver on-time, on-budget, and hitting product goals.
+Owned engineering for ‘Textbook Solutions,’ a multi-million, multi-year 0-1 initiative with uncertainty around content licensing and PMF. De-risked through phased rollouts and stakeholder alignment, delivering on-time and achieving key product goals.
 
-- Championed **Skunkworks project** to launch mobile and desktop apps in 4 weeks (initial estimates were months). These contributed to **30% of traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
+- Championed & led **Skunkworks project** to launch mobile and desktop apps. These contributed to **20% of traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
 - Achieved **80% promotion rate** among 12 direct reports through mentorship and coaching.
 
 ### Frontpage.to
