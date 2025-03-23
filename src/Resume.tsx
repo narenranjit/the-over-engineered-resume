@@ -168,7 +168,9 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
             {job.titles.map((title) => (
               <div
                 style={{ zIndex: 999999 }}
-                className={`mb-4 last:mb-0 ${sanitizeText(title.name)} hover:relative hover:scale-150 hover:p-10 hover:shadow-lg hover:bg-white transition-transform duration-300`}
+                className={`mb-4 last:mb-0 ${sanitizeText(
+                  title.name
+                )} hover:relative hover:scale-150 hover:p-10 hover:shadow-lg hover:bg-white transition-transform duration-300`}
                 key={title.name}
               >
                 <div className="flex justify-between items-center relative z-20">
@@ -229,6 +231,11 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
               <Heading type="h4">
                 {project.link ? <a href={project.link}>{project.name}</a> : <>{project.name}</>}
               </Heading>
+              {project.link && (
+                <a className="text-muted-foreground text-xs ml-2" href={project.link}>
+                  {project.link}
+                </a>
+              )}
             </div>
 
             <Text>{project.description}</Text>
