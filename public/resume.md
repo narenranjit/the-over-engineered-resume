@@ -19,17 +19,17 @@ I'm a growth-focused leader who thrives at the intersection of product and engin
 
 Led cross-functional AI/ML and engineering teams through disruptive LLM shifts in EdTech. Launched multiple 0-1 products to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
 
-- Defined **execution strategy** and set **technical direction** across multiple product lines, balancing rapid iteration for new bets with resilience and scale for mature, business-critical systems.
+- Defined **execution strategy** and set **technical vision** across multiple product lines, balancing rapid iteration for new bets with resilience and scale for mature, business-critical systems.
 - Fostered a **customer-centric culture**, with 70% of ICs engaging in at least one monthly customer interaction.
 - Scaled iterative hypothesis-driven launch cycles, increasing **AB-tests by 50%** YoY.
-- Revamped leveling framework to clarify career paths, develop EMs, and scale leadership capacity.
+- Revamped leveling framework to clarify career paths, support EM growth, and scale leadership capacity.
 
 #### Director of Engineering [2021 - 2022]
 
 Owned engineering for the Question-and-Answer platform. Achieved **30% YoY growth** for a $40M product line.
 
-- Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled **headcount by 30%**, while also boosting team **engagement scores by 10%**.
-- Optimized hiring processes, reducing intake-to-onsite time by 35%.
+- Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled global **headcount by 30%**, while also boosting team **engagement scores by 10%**.
+- Optimized hiring pipeline to improve throughput and candidate experience, cutting intake-to-onsite time by 35%.
 - Piloted **first offshore team**, creating collaboration frameworks now integral to operational strategies.
 - Proactively formed volunteer team to improve Developer Experience, achieving **40% faster tests** and **35% faster builds**. Secured funding for a full-time team based on this success.
 
