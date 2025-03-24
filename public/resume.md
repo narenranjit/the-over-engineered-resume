@@ -94,7 +94,7 @@ Link: https://naren.is/building/code-theme
 
 ### Roasted Reads
 
-A playful tool that critiques your reading profile through LLMs. An experiment in blending reader analytics with AI-generated snark.
+An app that critiques your reading history through LLMs. An experiment in blending reader analytics with AI-generated snark.
 
 Link: https://roastedreads.com
 
@@ -102,7 +102,7 @@ Tech Stack: Typescript. React. Cloudflare. LLM.
 
 ### The Over-Engineered Resumé Generator
 
-Built to create this very resumé! It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
+Built to create this very resumé. It converts a Markdown file into sleek Web and PDF versions, formatting to make sure everything fits within 2 pages.
 
 Link: https://naren.is/building/git-resume
 
