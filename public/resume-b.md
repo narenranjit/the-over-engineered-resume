@@ -75,7 +75,7 @@ Started as employee #3, driven by desire to have direct impact in a growing comp
 
 #### Web Developer [2007 - 2008]
 
-Joined as a Java Engineer on a backendheavy team. Identified a gap in UI expertise, and leveraged background in design to become front-end lead, spearheading development of a rule-based interface for SQL queries.
+Joined as a Java Engineer on a backend-heavy team. Identified a gap in UI expertise, and leveraged background in design to become front-end lead, spearheading development of a rule-based interface for SQL queries.
 
 - Introduced automated front-end testing to improve quality and reduce regression issues.
 

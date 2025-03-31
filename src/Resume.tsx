@@ -3,7 +3,7 @@ import { marked } from "marked";
 import "./resume.css";
 function Date({ from, to }: { from: number; to: number | undefined }) {
   return (
-    <span className=" text-xs px-2 py-1 rounded-md bg-slate-200 text-slate-600 leading-none">
+    <span className=" px-2 py-1 rounded-md bg-slate-200 text-slate-600 leading-none text-xs">
       {from} &ndash; {to || "Present"}
     </span>
   );
@@ -16,7 +16,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
     <ul className="pl-4 mt-2 text-sm">
       {parsed.map((text, index) => (
         <li className="ml-[-15px] flex mb-1" key={index}>
-          <span className=" text-slate-400 print:leading-none  items-start">•</span>
+          <span className=" text-slate-400 items-start">•</span>
           <span className="ml-2" dangerouslySetInnerHTML={{ __html: text }}></span>
         </li>
       ))}
@@ -110,9 +110,17 @@ function Logo({ company }: { company: string }) {
   );
 }
 
-function ContactItem({ href, text }: { href: string; text: string }) {
+function ContactItem({
+  href,
+  text,
+  className,
+}: {
+  href: string;
+  text: string;
+  className?: string;
+}) {
   return (
-    <p className="text-muted-foreground text-sm mb-2 leading-tight">
+    <p className={`text-muted-foreground text-sm mb-2 leading-tight ${className}`}>
       <a href={href} className="hover:underline">
         {text}
       </a>
@@ -121,7 +129,7 @@ function ContactItem({ href, text }: { href: string; text: string }) {
 }
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
-    <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:shadow-none print:p-0 print:m-0">
+    <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:shadow-none print:p-0 print:m-0 font-sans">
       <header className="mb-5">
         <div className="flex justify-between items-start">
           <div className="text-right mr-6">
