@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 import ResumePage from "./ResumeApp.tsx";
+import { ViteReactSSG } from "vite-react-ssg/single-page";
 
-createRoot(document.getElementById("root")!).render(
+export const createRoot = ViteReactSSG(
   <StrictMode>
     <ResumePage />
-  </StrictMode>,
+  </StrictMode>
 );
