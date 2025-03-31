@@ -13,10 +13,10 @@ function VerticalList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
   const parsed = list.map((item) => marked.parseInline(item));
   return (
-    <ul className="pl-4 mt-2 space-y-1 text-sm">
+    <ul className="pl-4 mt-2 text-sm">
       {parsed.map((text, index) => (
-        <li className="ml-[-15px] flex" key={index}>
-          <span className="text-2xl text-slate-400 leading-[0.8em]  items-start">•</span>
+        <li className="ml-[-15px] flex mb-1" key={index}>
+          <span className=" text-slate-400 print:leading-none  items-start">•</span>
           <span className="ml-1" dangerouslySetInnerHTML={{ __html: text }}></span>
         </li>
       ))}
@@ -87,9 +87,9 @@ function InlineList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
   const parsed = list.map((item) => marked.parseInline(item));
   return (
-    <ul className="flex flex-wrap justify-start space-x-2 text-sm marker:text-muted-foreground">
+    <ul className="flex flex-wrap justify-start  text-sm marker:text-muted-foreground">
       {parsed.map((text, index) => (
-        <li key={index} className="flex items-center">
+        <li key={index} className="flex items-center mr-2">
           {index > 0 && <span className="mr-2 text-gray-400">•</span>}
           <span dangerouslySetInnerHTML={{ __html: text }}></span>
         </li>
@@ -239,8 +239,10 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
 
             <Text>{project.description}</Text>
             {project.techStack && (
-              <div className="flex items-center space-x-2 mt-1 mb-2 text-muted-foreground">
-                <Heading type="h6">Tech Stack:</Heading>
+              <div className="flex items-center mt-1 mb-2 text-muted-foreground">
+                <Heading type="h6" className="mr-2">
+                  Tech Stack:
+                </Heading>
                 <InlineList list={project.techStack} />
               </div>
             )}
