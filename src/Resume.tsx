@@ -13,13 +13,12 @@ function VerticalList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
   const parsed = list.map((item) => marked.parseInline(item));
   return (
-    <ul className="list-disc pl-4 mt-2 space-y-1 text-sm marker:text-slate-400">
+    <ul className="pl-4 mt-2 space-y-1 text-sm">
       {parsed.map((text, index) => (
-        <li
-          className="print:ml-[1px] ml-[-2px]"
-          key={index}
-          dangerouslySetInnerHTML={{ __html: text }}
-        ></li>
+        <li className="ml-[-15px] flex" key={index}>
+          <span className="text-2xl text-slate-400 leading-[0.8em]  items-start">•</span>
+          <span className="ml-1" dangerouslySetInnerHTML={{ __html: text }}></span>
+        </li>
       ))}
     </ul>
   );
