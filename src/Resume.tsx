@@ -16,7 +16,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
     <ul className="pl-4 mt-2 text-sm">
       {parsed.map((text, index) => (
         <li className="ml-[-15px] flex mb-1" key={index}>
-          <span className="text-slate-400 text-2xl leading-[0.8em] items-start">•</span>
+          <span className="text-slate-400 text-xl leading-none items-start">•</span>
           <span className="ml-2" dangerouslySetInnerHTML={{ __html: text }}></span>
         </li>
       ))}

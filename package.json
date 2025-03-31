@@ -9,7 +9,7 @@
     "build:ssg": "vite-react-ssg build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate": "node build/generate-pdf.js"
+    "pdf": "node build/generate-pdf.js"
   },
   "dependencies": {
     "react": "^18.3.1",

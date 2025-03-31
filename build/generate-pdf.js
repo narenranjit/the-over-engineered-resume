@@ -3,19 +3,13 @@ import puppeteer from "puppeteer";
 
 async function renderToPDF(url, outputPath) {
   const browser = await puppeteer.launch({
-    browser: "chrome",
+    browser: "firefox",
   });
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: "networkidle2" });
 
   await page.pdf({
     printBackground: true,
-    margin: {
-      top: "0.5in",
-      right: "0.5in",
-      bottom: "0.5in",
-      left: "0.5in",
-    },
     path: outputPath,
   });
 
