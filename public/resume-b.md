@@ -17,27 +17,27 @@ I'm a growth-focused leader who thrives at the intersection of product and engin
 
 #### Senior Director of Engineering [2022 - current]
 
-Led cross-functional AI/ML and engineering teams through disruptive LLM shifts in EdTech. Launched multiple 0-1 products to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
+Led cross-functional **AI/ML and engineering** teams through disruptive LLM shifts in EdTech. Launched **multiple 0-1 products** to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
 
 - Defined **execution strategy** and set **technical vision** across multiple product lines, balancing rapid iteration for new bets with resilience and scale for mature, business-critical systems.
-- Drove multi-domain platform strategy in partnership with Product and SEO, increasing diversified **traffic by 35%**.
-- Scaled experimentation, driving a **50% YoY increase in AB-tests** and 2x faster iteration on key user flows.
-- Co-led a **global brand refresh** with Design, building a shared design system to modernize product lines, unify UX, and boost engineering velocity.
+- Drove multi-domain **platform and SEO strategy**, resulting in a 35% increase in diversified traffic. Lead **global brand refresh** to modernize UX and accelerate engineering velocity.
+- Fostered a culture of **rapid iteration** (50% more AB tests) and **direct user engagement** (70% IC participation), resulting in a 20% increase in successful tests.
+- Built a **scalable leadership pipeline** by redesigning leveling framework to accelerate EM growth and clarify career paths.
 
 #### Director of Engineering [2021 - 2022]
 
-Owned engineering for the Question-and-Answer platform. Achieved **30% YoY growth** for a $40M product line.
+Owned engineering for the Question-and-Answer platform. Achieved **30% YoY growth** for a **$40M product line**.
 
-- Restructured teams with clear charters and OKRs, streamlining decision-making and enhancing accountability. Scaled global **headcount by 30%**, while also boosting team **engagement scores by 10%**.
-- Directed cross-functional **i18n and localization** efforts, driving a 20% conversion lift across newly localized markets.
-- Piloted **first offshore team**, creating collaboration frameworks now integral to operational strategies.
-- Proactively formed volunteer team to improve Developer Experience, achieving **40% faster tests** and **35% faster builds**.
+- **Restructured org for efficiency and autonomy**. Scaled **headcount by 30%** while also boosting engagement scores by 10%.
+- Directed cross-functional **i18n and localization** efforts, driving a **20% conversion lift** across newly localized markets.
+- Scaled **DevEx** from ad-hoc effort to org-wide focus—cut **build time by 35%**, boosted **deploy frequency by 40%**.
+- Pioneered **global engineering hub** model—built hiring strategy, playbooks, and KPIs to scale multiple teams; reduced time-to-offer by 35% and supported **1.5x org growth**.
 
 #### Senior Engineering Manager [2019 - 2021]
 
 Owned engineering for ‘Textbook Solutions,’ a multi-million, multi-year 0-1 initiative with uncertainty around content licensing and PMF. De-risked through phased rollouts and stakeholder alignment, delivering on-time and achieving key product goals.
 
-- Championed and led **skunkworks project** to launch mobile and desktop apps. These contributed to **20% of traffic** and were recognized as a ‘Recommended App’ on the Windows Store.
+- Led **skunkworks** mobile and desktop app launches—drove 20% of traffic and featured as Windows **‘Recommended App’**.
 - Achieved **80% promotion rate** among 12 direct reports through mentorship and coaching.
 
 ### Frontpage.to
@@ -48,7 +48,7 @@ Frontpage.to was a customizable content aggregation platform for creating person
 
 - Scaled to **10K Daily Active Users** through organic marketing and community-building.
 - Engaged directly with users to gather feedback, iterating on features to achieve a **50% Day-30 retention rate**.
-- **Owned every aspect of the product** - from customer research to design to development.
+- Drove every aspect of **product development** - from customer research to design to development.
 
 ### Forio
 
