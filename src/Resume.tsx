@@ -17,7 +17,7 @@ function VerticalList({ list }: { list: string[] | undefined }) {
       {parsed.map((text, index) => (
         <li className="ml-[-15px] flex mb-1" key={index}>
           <span className=" text-slate-400 print:leading-none  items-start">•</span>
-          <span className="ml-1" dangerouslySetInnerHTML={{ __html: text }}></span>
+          <span className="ml-2" dangerouslySetInnerHTML={{ __html: text }}></span>
         </li>
       ))}
     </ul>
@@ -52,7 +52,7 @@ function Heading({
   } else if (type === "h2") {
     return (
       <h2
-        className={`text-xl font-black uppercase text-slate-600 mb-4 mt-4 text-right border-b-2 border-slate-400 ${className}`}
+        className={`text-xl font-extrabold uppercase text-slate-600 mb-4 mt-4 text-right border-b-2 border-slate-400 ${className}`}
       >
         {children}
       </h2>
@@ -122,9 +122,9 @@ function ContactItem({ href, text }: { href: string; text: string }) {
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:shadow-none print:p-0 print:m-0">
-      <header className="mb-6">
-        <div className="flex justify-between items-start gap-6">
-          <div className="text-right">
+      <header className="mb-5">
+        <div className="flex justify-between items-start">
+          <div className="text-right mr-6">
             <Heading type="h1">
               <span className="text-slate-800 font-extrabold">{resume.name.first}</span>&nbsp;
               <span className="text-slate-600">{resume.name.last}</span>
