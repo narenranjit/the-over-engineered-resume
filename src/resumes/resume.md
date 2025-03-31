@@ -8,8 +8,7 @@ I'm a growth-focused leader who thrives at the intersection of product and engin
 
 - Proven **ability to scale** organizations during explosive growth as well navigating them through downturns.
 - Deep **product and user focus**, with a hands-on approach and adaptability to wear multiple hats to get things done.
-- Demonstrated success translating business strategy into engineering roadmaps that optimize for efficiency and scale.
-- Track record of leading multiple innovative 0-1 products from inception to launch, driving user growth and validating product-market fit.
+- Track record of leading multiple **0-1 products** from inception to launch, driving user growth and validating product-market fit.
 
 ## Experience
 
@@ -47,8 +46,8 @@ Owned engineering for ‘Textbook Solutions,’ a multi-million, multi-year 0-1 
 Frontpage.to was a customizable content aggregation platform for creating personalized dashboards, integrating email, social media, and RSS. Created for personal use, scaled after validating market demand.
 
 - Scaled to **10K Daily Active Users** through organic marketing and community-building.
-- Engaged directly with users to gather feedback, iterating on features to achieve a **50% Day-30 retention rate**.
-- Drove every aspect of **product development** - from customer research to design to development.
+- **Engaged directly with users** to gather feedback, iterating on features to achieve a **50% Day-30 retention rate**.
+- Drove every **aspect of product development** - from customer research to design to development.
 
 ### Forio
 

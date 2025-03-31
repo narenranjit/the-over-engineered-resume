@@ -130,7 +130,7 @@ function ContactItem({
 export default function ResumeComponent({ resume }: { resume: Resume }) {
   return (
     <div className="max-w-4xl p-8 mx-auto bg-white leading-snug shadow-lg my-3 print:shadow-none print:p-0 print:m-0 font-sans">
-      <header className="mb-5">
+      <header className="mb-6">
         <div className="flex justify-between items-start">
           <div className="text-right mr-6">
             <Heading type="h1">
@@ -162,7 +162,9 @@ export default function ResumeComponent({ resume }: { resume: Resume }) {
         </div>
       </header> */}
       <Section>
-        <Heading type="h2">Work Experience</Heading>
+        <Heading type="h2" className="border-0">
+          Work Experience
+        </Heading>
         {resume.experience.map((job) => (
           <div
             className={`mb-10 last-of-type:mb-0 company-${sanitizeText(job.companyName)}`}
