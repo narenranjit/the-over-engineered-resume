@@ -87,10 +87,10 @@ function InlineList({ list }: { list: string[] | undefined }) {
   if (!list) return null;
   const parsed = list.map((item) => marked.parseInline(item));
   return (
-    <ul className="flex flex-wrap justify-start  text-sm marker:text-muted-foreground">
+    <ul className="flex flex-wrap justify-start  text-sm">
       {parsed.map((text, index) => (
         <li key={index} className="flex items-center mr-2">
-          {index > 0 && <span className="mr-2 text-gray-400">•</span>}
+          {index > 0 && <span className="mr-2 text-muted-foreground">•</span>}
           <span dangerouslySetInnerHTML={{ __html: text }}></span>
         </li>
       ))}
