@@ -18,8 +18,8 @@ I'm a growth-focused leader who thrives at the intersection of product and engin
 
 Led cross-functional **AI/ML and engineering** teams through disruptive LLM shifts in EdTech. Launched **multiple 0-1 products** to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
 
-- Defined **execution strategy** and set **technical vision** across multiple product lines, balancing rapid iteration for new bets with resilience and scale for mature, business-critical systems.
-- Drove multi-domain **platform and SEO strategy**, resulting in a 35% increase in diversified traffic; partnered with Legal and Product to proactively address content and compliance risks at scale.
+- Defined **execution strategy** and set **technical vision** across multiple product lines, balancing **rapid iteration** for new bets with **resilience and scale** for mature, business-critical systems.
+- Drove multi-domain **platform and SEO strategy**, resulting in a 35% increase in diversified traffic; partnered with Legal and Product to proactively address **content and compliance risks** at scale.
 - Fostered a culture of rapid, **hypothesis-driven iteration** (50% more AB tests YoY) and **customer-centricity** (70% ICs engaging directly with end-users), leading to a 20% increase in successful test outcomes.
 - Built a **scalable leadership pipeline** by redesigning leveling framework to accelerate EM growth and clarify career paths.
 
