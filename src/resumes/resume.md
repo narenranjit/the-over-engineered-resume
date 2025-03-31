@@ -17,7 +17,7 @@ I'm a growth-focused leader who thrives at the intersection of product and engin
 
 #### Senior Director of Engineering [2022 - current]
 
-Led cross-functional AI/ML and engineering teams through disruptive LLM shifts in EdTech. Launched multiple 0-1 products to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
+Led cross-functional **AI/ML and engineering** teams through disruptive LLM shifts in EdTech. Launched **multiple 0-1 products** to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
 
 - Defined **execution strategy** and set **technical vision** across multiple product lines, balancing rapid iteration for new bets with resilience and scale for mature, business-critical systems.
 - Fostered a **customer-centric culture**, with 70% of ICs engaging in at least one monthly customer interaction.
