@@ -20,15 +20,15 @@ I'm a growth-focused leader who thrives at the intersection of product and engin
 Led cross-functional **AI/ML and engineering** teams through disruptive LLM shifts in EdTech. Launched **multiple 0-1 products** to secure product-market fit, driving a **15% increase in WAUs** across 2M users.
 
 - Defined **execution strategy** and set **technical vision** across multiple product lines, balancing rapid iteration for new bets with resilience and scale for mature, business-critical systems.
-- Drove multi-domain **platform and SEO strategy**, resulting in a 35% increase in diversified traffic. Lead **global brand refresh** to modernize UX and accelerate engineering velocity.
-- Fostered a culture of **rapid iteration** (50% more AB tests) and **direct user engagement** (70% IC participation), resulting in a 20% increase in successful tests.
+- Drove multi-domain **platform and SEO strategy**, resulting in a 35% increase in diversified traffic. Led **global brand refresh** to modernize UX and accelerate engineering velocity.
+- Fostered a culture of rapid, **hypothesis-driven iteration** (50% more AB tests YoY) and **customer-centricity** (70% ICs engaging directly with end-users), leading to a 20% increase in successful test outcomes.
 - Built a **scalable leadership pipeline** by redesigning leveling framework to accelerate EM growth and clarify career paths.
 
 #### Director of Engineering [2021 - 2022]
 
 Owned engineering for the Question-and-Answer platform. Achieved **30% YoY growth** for a **$40M product line**.
 
-- **Restructured org for efficiency and autonomy**. Scaled **headcount by 30%** while also boosting engagement scores by 10%.
+- **Restructured org for efficiency and autonomy**. Scaled **headcount by 30%** while boosting engagement scores by 10%.
 - Directed cross-functional **i18n and localization** efforts, driving a **20% conversion lift** across newly localized markets.
 - Scaled **DevEx** from ad-hoc effort to org-wide focus—cut **build time by 35%**, boosted **deploy frequency by 40%**.
 - Pioneered **global engineering hub** model—built hiring strategy, playbooks, and KPIs to scale multiple teams; reduced time-to-offer by 35% and supported **1.5x org growth**.
