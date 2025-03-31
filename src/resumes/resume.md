@@ -31,7 +31,7 @@ Owned engineering for the Question-and-Answer platform. Achieved **30% YoY growt
 - **Restructured org for efficiency and autonomy**. Scaled **headcount by 30%** while boosting engagement scores by 10%.
 - Directed cross-functional **i18n and localization** efforts, driving a **20% conversion lift** across newly localized markets.
 - Scaled **DevEx** from ad-hoc effort to org-wide focus—cut **build time by 35%**, boosted **deploy frequency by 40%**.
-- Pioneered **offshore development **model — defined hiring strategy, playbooks, and KPIs to scale multiple teams; reduced time-to-offer by 35% and supported **1.5x org growth**.
+- Pioneered **offshore development** model — defined hiring strategy, playbooks, and KPIs to scale multiple teams; reduced time-to-offer by 35% and supported **1.5x org growth**.
 
 #### Senior Engineering Manager [2019 - 2021]
 
@@ -59,15 +59,15 @@ Frontpage.to was a customizable content aggregation platform for creating person
 Led Forio's consulting division, collaborating with Harvard, Wharton, IBM, and Fortune 500 companies, to build data-rich web simulations. Owned all user-facing elements of the platform.
 
 - **Grew team from 3 to 30**, establishing scalable hiring processes and engineering best practices.
-- Led consulting engagements, from B2B sales calls to drafting SoWs.
+- Led consulting engagements, from **B2B sales calls to drafting SoWs**.
 - Served as **lead architect** for critical projects, including FlowJS—a framework-agnostic two-way data-binding tool I ideated, validated, and built. Owned design and specification of all REST APIs.
-- Wore multiple hats, taking on product management, design, and project management roles as needed.
+- Took on product, design, and leadership roles as needed to drive execution across lean teams.
 
 #### Web Developer [2008 - 2011]
 
-Started as employee #3, driven by desire to have direct impact in a growing company. Developed user interfaces for data-rich web simulations, as well as frameworks to simplify their creation.
+Started as **employee #3**, driven by desire to have direct impact in a growing company. Developed user interfaces for data-rich web simulations, as well as frameworks to simplify their creation.
 
-- Architected most of the technical stack, laying the foundation for the team’s future growth.
+- **Architected** most of the technical stack, laying the foundation for the team’s future growth.
 - Created a **front-end framework** to bootstrap simulations, still actively used over 12 years later.
 - Built an innovative IE6-compatible cross-iframe communication framework for real-time multiplayer apps.
 
